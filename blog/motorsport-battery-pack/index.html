@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Spec a Battery Pack for a Motorsport EV | EVDrive</title>
+<meta name="description" content="A practical engineering guide to speccing a motorsport EV battery pack: how to translate stint energy, peak power, C-rate, cooling, and safety into real pack requirements.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Spec a Battery Pack for a Motorsport EV",
+  "description": "A practical engineering guide to speccing a motorsport EV battery pack: how to translate stint energy, peak power, C-rate, cooling, and safety into real pack requirements.",
+  "articleSection": "Motorsport",
+  "author": {
+    "@type": "Organization",
+    "name": "EVDrive Engineering"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EVDrive",
+    "description": "Portland, Oregon premium EV battery modules, packs, and the BetterBMS."
+  },
+  "about": ["motorsport EV battery pack", "EV pack specification", "C-rate", "battery thermal management"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much energy does a motorsport EV battery pack need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Size usable energy from the longest stint: multiply average lap power by stint duration, then add margin for derating, end-of-stint voltage sag, and a thermal reserve. Race packs are usually power-limited rather than range-limited, so usable energy is set by stint length, not total distance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What C-rate should a race battery pack support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C-rate is set by peak discharge and regen, not average draw. Map the worst-case power demand against pack energy to find continuous and peak C-rate, then choose cells and busbars that hold those rates while staying inside their thermal and voltage limits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is cooling so critical in a motorsport pack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sustained high C-rate generates heat faster than passive designs can shed it. Without active, usually liquid, cooling the pack derates mid-stint, loses power, and ages quickly. Thermal headroom is what keeps performance flat from green flag to checker."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I buy modules or a full pack for a race program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your packaging freedom and engineering capacity. Standardized high-performance modules speed integration when you control the enclosure and cooling. A full turnkey pack with an integrated BMS is faster to deploy when you want a validated, race-ready system."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="bhead"><div class="wrap bnav">
+  <a class="brand" href="../../concepts/a/index.html">EV<b>Drive</b></a>
+  <ul>
+    <li><a class="nl" href="../../concepts/a/index.html#products">Products</a></li>
+    <li><a class="nl" href="https://ev-battery-management-system.com">BMS</a></li>
+    <li><a class="nl" href="../../concepts/a/index.html#deployments">Deployments</a></li>
+    <li><a class="nl on" href="../index.html">Blog</a></li>
+    <li><a class="nl" href="../../concepts/a/index.html#faq">FAQ</a></li>
+  </ul>
+  <a class="cta" href="../../concepts/a/index.html#rfq">Request a Quote</a>
+</div></header>
+<section class="art-hero"><div class="wrap">
+  <div class="crumb"><a href="../index.html">Blog</a> / Motorsport</div>
+  <h1>How to Spec a Battery Pack for a Motorsport EV</h1>
+  <div class="art-meta"><span>Motorsport</span><span>6 min read</span><span>EVDrive Engineering</span></div>
+  <div class="art-img"><img src="../images/deploy-webasto.jpg" alt="Liquid-cooled high-performance EV battery pack engineered for motorsport duty"></div>
+</div></section>
+<article class="prose">
+
+<p>To spec a battery pack for a motorsport EV, work backward from the race itself: define the longest stint, the peak power and regen the car will pull, and the thermal envelope it must survive, then size usable energy, voltage, C-rate, and cooling to hold those numbers flat for the full stint. A race pack is almost always power-limited and thermally constrained, not range-limited, so the build is driven by how hard and how long you push, not by total distance. Get the energy, power, and cooling math right first, and cell choice and packaging follow.</p>
+
+<p>The difference between a pack that posts one fast lap and one that holds pace from green flag to checker is rarely the cell. It is how well the whole system, energy budget, current path, cooling, and the management layer, is matched to the actual race demand. Below is the order we work in when a customer brings us a motorsport program.</p>
+
+<h2>Start with the duty cycle, not the cell</h2>
+
+<p>Before anyone names a chemistry, you need a power-versus-time trace of a representative lap and a full stint. That trace tells you average power (which sets energy) and peak power (which sets C-rate and busbar sizing). Sprint, endurance, hillclimb, and rallycross all produce wildly different traces, and a pack tuned for one will underperform in another. Logged data from a sister car or a simulation is worth more than any spec-sheet headline. If the duty cycle is wrong, everything downstream is wrong.</p>
+
+<h2>Size usable energy from the stint</h2>
+
+<p>Multiply average lap power by stint duration to get a baseline energy figure, then add margin. You never use 100 percent of a pack: leave room for end-of-stint voltage sag, thermal derating, and a safety reserve so the car does not fall off pace in the final laps. Usable energy, not nameplate capacity, is the number that matters. Oversizing for range adds dead weight that hurts lap time, so the goal is the smallest pack that reliably finishes the stint with margin to spare.</p>
+
+<h2>Set voltage and C-rate for peak power</h2>
+
+<p>Pack voltage is chosen with the inverter and motor: higher voltage lowers current for a given power, which means thinner conductors, less resistive loss, and less heat. From peak power and usable energy you derive continuous and peak C-rate. This is where premium 21700-based modules earn their place, because sustained high C-rate without sag or excess heat is exactly what cheap cells cannot do. Our high-performance <a href="../../concepts/a/index.html#products">battery modules and packs</a> are built around this constraint, with current paths and interconnects sized for race-duty peaks rather than catalog averages.</p>
+
+<h2>Engineer the thermal path early</h2>
+
+<p>Heat is the quiet killer of race-pack performance. Sustained high C-rate generates it faster than a passive pack can shed it, and once cells climb past their happy band the BMS derates to protect them, costing you power exactly when you want it. That is why serious motorsport packs run active, usually liquid, cooling designed alongside the electrical layout, not bolted on afterward. The cooling system is a primary design input, not an accessory. Plan coolant routing, plate contact, and flow before the module layout is frozen.</p>
+
+<h2>Make the BMS a performance tool</h2>
+
+<p>In a race pack the management system is not just a safety device, it is how you extract the last few percent and protect the asset under abuse. Accurate per-cell monitoring, tight balancing, fast fault response, and clean data logging let you push closer to the limit with confidence. We pair our packs with <a href="https://ev-battery-management-system.com">BetterBMS</a>, engineered in-house so the monitoring, protection, and thermal logic are tuned to the same pack they ship in. A BMS designed with the pack behaves predictably under sag, heat, and hard regen in ways a generic, retrofitted board cannot.</p>
+
+<h2>Validate, then leave headroom</h2>
+
+<p>Once the design is on paper, validate it against the worst case, not the average lap: the hottest ambient, the longest stint, the most aggressive driver. Build in headroom on current, temperature, and state of charge so a bad day does not become a DNF. The best motorsport packs look slightly conservative on a dyno and perfectly matched on track, because real racing lives in the margins you remembered to leave.</p>
+
+<div class="keytak"><h4>Key takeaways</h4><ul>
+  <li>Spec from the race: longest stint, peak power, and thermal envelope drive every other number.</li>
+  <li>Race packs are power-limited and thermally constrained, not range-limited. Size usable energy, not nameplate capacity.</li>
+  <li>Peak power and regen, not average draw, set your C-rate, voltage, and busbar sizing.</li>
+  <li>Active liquid cooling is a primary design input. Plan the thermal path before freezing the layout.</li>
+  <li>Treat the BMS as a performance tool, and leave real headroom on current, temperature, and charge.</li>
+</ul></div>
+
+<p>If you are scoping a program now, the fastest path is a short conversation about your duty cycle and target specs. You can <a href="../../concepts/a/index.html#rfq">request a quote</a> and a real EVDrive engineer will work the numbers with you.</p>
+
+<div class="faqb"><h2>FAQ</h2>
+<details><summary>How much energy does a motorsport EV battery pack need?</summary><p>Size usable energy from the longest stint: multiply average lap power by stint duration, then add margin for derating, end-of-stint voltage sag, and a thermal reserve. Race packs are usually power-limited rather than range-limited, so usable energy is set by stint length, not total distance.</p></details>
+<details><summary>What C-rate should a race battery pack support?</summary><p>C-rate is set by peak discharge and regen, not average draw. Map the worst-case power demand against pack energy to find continuous and peak C-rate, then choose cells and busbars that hold those rates while staying inside their thermal and voltage limits.</p></details>
+<details><summary>Why is cooling so critical in a motorsport pack?</summary><p>Sustained high C-rate generates heat faster than passive designs can shed it. Without active, usually liquid, cooling the pack derates mid-stint, loses power, and ages quickly. Thermal headroom is what keeps performance flat from green flag to checker.</p></details>
+<details><summary>Should I buy modules or a full pack for a race program?</summary><p>It depends on your packaging freedom and engineering capacity. Standardized high-performance modules speed integration when you control the enclosure and cooling. A full turnkey pack with an integrated BMS is faster to deploy when you want a validated, race-ready system.</p></details>
+</div>
+
+</article>
+<div class="artcta"><h2>Building something that can't compromise?</h2><p>Tell us the application and target specs. A real EVDrive engineer responds fast.</p><a href="../../concepts/a/index.html#rfq">Request a Quote</a></div>
+<footer class="bfoot"><div class="wrap"><span>EVDrive, Portland Oregon. Premium EV battery modules, packs, and the BetterBMS.</span><span>Mockup by Eagle Point Publishing</span></div></footer>
+</body>
+</html>

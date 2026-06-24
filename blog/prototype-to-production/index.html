@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Prototype to Production: Scaling a Custom EV Battery Pack | EVDrive</title>
+<meta name="description" content="How a custom EV battery pack moves from prototype to production: design freeze, validation testing, supply chain, and process control. A field guide from EVDrive engineers.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "From Prototype to Production: Scaling a Custom EV Battery Pack",
+  "description": "How a custom EV battery pack moves from prototype to production: design freeze, validation testing, supply chain, and process control. A field guide from EVDrive engineers.",
+  "author": { "@type": "Organization", "name": "EVDrive Engineering" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "EVDrive",
+    "logo": { "@type": "ImageObject", "url": "https://evdrive.example/blog/images/evdrive-logo.png" }
+  },
+  "image": "https://evdrive.example/blog/images/hw-1.png",
+  "articleSection": "Manufacturing",
+  "inLanguage": "en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does it take to scale a custom EV battery pack from prototype to production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most performance programs run several months from a validated prototype to first production units. The timeline is driven by validation testing (thermal, abuse, and cycle life), cell supply lead times, and the work needed to make assembly repeatable rather than the design itself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a design freeze and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A design freeze locks the mechanical, electrical, and BMS configuration so validation testing reflects exactly what will ship. Changes after the freeze invalidate prior test data and force re-testing, so disciplined freezes protect both schedule and safety."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is cell supply the hardest part of scaling production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Premium 21700 cells have long lead times and tight allocation, and substituting a different cell changes thermal, electrical, and safety behavior. Securing supply and qualifying a second source early prevents a stalled line later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the BMS need to change between prototype and production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The control strategy usually carries over, but production adds end-of-line calibration, traceability, and firmware version control. A management system like BetterBMS is designed to support that transition without re-architecting the pack."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="bhead"><div class="wrap bnav">
+  <a class="brand" href="../../concepts/a/index.html">EV<b>Drive</b></a>
+  <ul>
+    <li><a class="nl" href="../../concepts/a/index.html#products">Products</a></li>
+    <li><a class="nl" href="https://ev-battery-management-system.com">BMS</a></li>
+    <li><a class="nl" href="../../concepts/a/index.html#deployments">Deployments</a></li>
+    <li><a class="nl on" href="../index.html">Blog</a></li>
+    <li><a class="nl" href="../../concepts/a/index.html#faq">FAQ</a></li>
+  </ul>
+  <a class="cta" href="../../concepts/a/index.html#rfq">Request a Quote</a>
+</div></header>
+
+<section class="art-hero"><div class="wrap">
+  <div class="crumb"><a href="../index.html">Blog</a> / Manufacturing</div>
+  <h1>From Prototype to Production: Scaling a Custom EV Battery Pack</h1>
+  <div class="art-meta"><span>Manufacturing</span><span>6 min read</span><span>EVDrive Engineering</span></div>
+  <div class="art-img"><img src="../images/hw-1.png" alt="Custom EV battery pack hardware in an engineering bench setup, ready for validation testing"></div>
+</div></section>
+
+<article class="prose">
+
+<p>Scaling a custom EV battery pack from prototype to production means turning one working unit into a repeatable, validated product. The hard part is rarely the first prototype. It is the transition: freezing the design, proving it survives real-world abuse and cycle life, locking down cell supply, and building a process that produces the same pack every time. A prototype proves the idea. Production proves you can ship it safely, at volume, with traceability behind every weld.</p>
+
+<p>At EVDrive we build premium 21700-based modules and liquid-cooled packs in house, so the path from a one-off to a production run is something we walk with customers regularly. Here is how that journey actually works.</p>
+
+<div class="keytak"><h4>Key takeaways</h4><ul>
+  <li>A prototype validates the concept. Production validates repeatability, safety, and supply.</li>
+  <li>The design freeze is the single most important milestone. Changes after it force re-validation.</li>
+  <li>Validation testing (thermal, abuse, cycle life) is non-negotiable and drives the timeline.</li>
+  <li>Cell supply and second-source qualification should start early, not at launch.</li>
+  <li>The BMS strategy carries over, but production adds calibration, traceability, and firmware control.</li>
+</ul></div>
+
+<h2>Stage one: validate the prototype before you scale anything</h2>
+<p>A prototype that runs on the bench is not a finished design. Before any talk of volume, the prototype has to demonstrate that it meets target specs under load, not just at rest. That means measured performance: usable energy, continuous and peak discharge, thermal behavior under sustained current, and how the pack holds up when the cooling loop is doing real work. For performance and motorsport programs, peak power and thermal headroom matter as much as nameplate capacity, so we characterize the pack the way it will actually be used.</p>
+<p>This is also where the mechanical and electrical architecture get stress tested. Busbar resistance, weld integrity, interconnect tolerance, and serviceability all surface here. It is far cheaper to redesign a bracket or a busbar now than after tooling is committed. Our in-house <a href="../../concepts/a/index.html#products">modules and packs</a> are designed so the prototype geometry carries cleanly into production hardware.</p>
+
+<h2>Stage two: the design freeze</h2>
+<p>The design freeze is where prototype work ends and production engineering begins. At freeze, the mechanical layout, cell selection, electrical topology, cooling design, and BMS configuration are locked. Everything that follows (validation, supply, tooling) assumes the frozen design is what ships.</p>
+<p>Why be so strict? Because validation data is only valid for the exact configuration tested. Swap a cell, move a sensor, or change a busbar after the freeze and prior test results no longer apply. A disciplined freeze protects both the schedule and, more importantly, safety. The teams that struggle most are the ones that keep "improving" the pack mid-validation and quietly reset their own clock every time.</p>
+
+<h2>Stage three: validation testing</h2>
+<p>Validation is where a frozen design earns the right to be built at volume. The core test campaign covers thermal performance, electrical abuse (over-charge, over-discharge, short circuit), mechanical abuse (shock, vibration, and where applicable crush and penetration), and cycle life to confirm the pack ages predictably. For packs headed into vehicles, this maps to the relevant transport and safety standards for the target market.</p>
+<p>This stage usually drives the overall timeline more than the design work does. Cycle-life testing in particular takes real calendar time, and you cannot compress physics. The management system is part of validation too: fault detection, cell balancing, thermal limits, and contactor control all get verified against the conditions the pack will see. Our <a href="https://ev-battery-management-system.com">BetterBMS management system</a> is built so the safety and control logic proven in validation is the same logic that runs in the field.</p>
+
+<h2>Stage four: supply chain and cell sourcing</h2>
+<p>Premium 21700 cells are a long-lead, tightly allocated commodity, and they are the part of the bill of materials most likely to stall a launch. A cell that is easy to buy in prototype quantities can be on a months-long lead time at production volume. Substituting a different cell is not a drop-in change either: it alters thermal behavior, internal resistance, and safety margins, which can pull you back into re-validation.</p>
+<p>The teams that scale smoothly lock supply early and qualify a second source before they need it. Getting the bill of materials, lead times, and allocation onto the table during the design phase (not at launch) is one of the highest-leverage moves in the whole program.</p>
+
+<h2>Stage five: process control and traceability</h2>
+<p>Production is where a great design becomes a great product, or fails to. The goal is repeatability: every pack built to the same torque specs, weld parameters, and calibration, with data captured to prove it. Welding and joining parameters are monitored, end-of-line testing confirms each pack meets spec before it ships, and serial-level traceability links cells, modules, and firmware versions to a specific unit.</p>
+<p>Traceability is not paperwork for its own sake. When a field question arises, the difference between a contained issue and a guessing game is whether you can trace a pack back to its cell lot, weld data, and BMS firmware build. Building that discipline in from the first production unit is far easier than retrofitting it later.</p>
+
+<h2>Where EVDrive fits</h2>
+<p>Because we engineer the modules, packs, and BMS in house, the prototype and the production pack share the same design DNA. That continuity removes the most common scaling failure: a beautiful prototype that has to be re-engineered to become manufacturable. If you are moving a high-performance pack toward production, you can <a href="../../concepts/a/index.html#rfq">request a quote</a> with your application and target specs, and a real engineer will talk through the path.</p>
+
+<div class="faqb"><h2>FAQ</h2>
+<details>
+  <summary>How long does it take to scale a custom EV battery pack from prototype to production?</summary>
+  <p>Most performance programs run several months from a validated prototype to first production units. The timeline is driven by validation testing (thermal, abuse, and cycle life), cell supply lead times, and the work needed to make assembly repeatable, rather than the design itself.</p>
+</details>
+<details>
+  <summary>What is a design freeze and why does it matter?</summary>
+  <p>A design freeze locks the mechanical, electrical, and BMS configuration so validation testing reflects exactly what will ship. Changes after the freeze invalidate prior test data and force re-testing, so disciplined freezes protect both schedule and safety.</p>
+</details>
+<details>
+  <summary>Why is cell supply the hardest part of scaling production?</summary>
+  <p>Premium 21700 cells have long lead times and tight allocation, and substituting a different cell changes thermal, electrical, and safety behavior. Securing supply and qualifying a second source early prevents a stalled line later.</p>
+</details>
+<details>
+  <summary>Does the BMS need to change between prototype and production?</summary>
+  <p>The control strategy usually carries over, but production adds end-of-line calibration, traceability, and firmware version control. A management system like BetterBMS is designed to support that transition without re-architecting the pack.</p>
+</details>
+</div>
+
+</article>
+
+<div class="artcta"><h2>Building something that can't compromise?</h2><p>Tell us the application and target specs. A real EVDrive engineer responds fast.</p><a href="../../concepts/a/index.html#rfq">Request a Quote</a></div>
+
+<footer class="bfoot"><div class="wrap"><span>EVDrive, Portland Oregon. Premium EV battery modules, packs, and the BetterBMS.</span><span>Mockup by Eagle Point Publishing</span></div></footer>
+</body>
+</html>
