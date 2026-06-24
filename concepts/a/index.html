@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVDrive | High-Performance EV Battery Systems &amp; BMS Engineering, Portland, Oregon</title>
+<meta name="description" content="EVDrive engineers premium EV battery modules, liquid-cooled packs, and the BetterBMS for OEMs, motorsport programs, and integrators. Ten years of in-house R&amp;D on class-leading power and energy density. Portland, Oregon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0b0d;
+    --ink-soft:#14161a;
+    --panel:#101216;
+    --paper:#f4f2ed;
+    --paper-warm:#ece8df;
+    --line-dark:rgba(255,255,255,.12);
+    --line-light:rgba(10,11,13,.14);
+    --text-dark:#f4f2ed;
+    --text-dark-mute:#a7a8ab;
+    --text-light:#16181c;
+    --text-light-mute:#5b5d62;
+    --accent:#c8a24a;
+    --accent-soft:#d8be83;
+    --copper:#b66a3e;
+    --font-display:"Fraunces",Georgia,serif;
+    --font-sans:"Inter",system-ui,-apple-system,sans-serif;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--font-sans);
+    background:var(--ink);
+    color:var(--text-dark);
+    font-weight:400;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1320px;margin:0 auto;padding:0 clamp(24px,5vw,80px)}
+  .eyebrow{
+    font-family:var(--font-sans);
+    font-size:12px;font-weight:500;
+    letter-spacing:.32em;text-transform:uppercase;
+    color:var(--accent);
+  }
+  .display{
+    font-family:var(--font-display);
+    font-weight:400;
+    line-height:1.02;
+    letter-spacing:-.015em;
+  }
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px clamp(24px,5vw,80px);
+    transition:background .5s var(--ease),padding .5s var(--ease),border-color .5s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  header.nav.solid{
+    background:rgba(10,11,13,.82);
+    backdrop-filter:blur(14px);
+    padding:14px clamp(24px,5vw,80px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .brandmark{
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:25px;
+    letter-spacing:.01em;
+    color:var(--text-dark);
+    display:flex;align-items:baseline;gap:2px;
+  }
+  .brandmark b{font-weight:500;color:var(--accent)}
+  .navlinks{display:flex;gap:38px;align-items:center}
+  .navlinks a{
+    font-size:13px;letter-spacing:.04em;color:var(--text-dark-mute);
+    transition:color .3s var(--ease);
+  }
+  .navlinks a:hover{color:var(--text-dark)}
+  .nav-cta{
+    font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--text-dark);border:1px solid var(--line-dark);
+    padding:11px 22px;border-radius:2px;
+    transition:border-color .4s var(--ease),background .4s var(--ease),color .4s var(--ease);
+  }
+  .nav-cta:hover{border-color:var(--accent);background:var(--accent);color:var(--ink)}
+  .menu-btn{display:none;background:none;border:none;color:var(--text-dark);font-size:26px;cursor:pointer}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero-media{position:absolute;inset:0;z-index:0}
+  .hero-media img{
+    width:100%;height:100%;object-fit:cover;object-position:center 42%;
+    transform:scale(1.08);
+    animation:heroDrift 18s var(--ease) forwards;
+  }
+  @keyframes heroDrift{to{transform:scale(1)}}
+  .hero-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,11,13,.55) 0%,rgba(10,11,13,.12) 32%,rgba(10,11,13,.25) 62%,rgba(10,11,13,.94) 100%);
+  }
+  .hero-media::before{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(90deg,rgba(10,11,13,.6) 0%,rgba(10,11,13,0) 55%);
+  }
+  .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(56px,9vh,120px)}
+  .hero-eyebrow{margin-bottom:30px;opacity:0;animation:fadeUp 1s var(--ease) .3s forwards}
+  .hero h1{
+    font-size:clamp(52px,9vw,140px);
+    color:var(--text-dark);
+    margin-bottom:28px;
+    text-wrap:balance;
+  }
+  .hero h1 .ln{display:block;overflow:hidden}
+  .hero h1 .ln span{display:block;transform:translateY(105%);animation:lineRise 1.2s var(--ease) forwards}
+  .hero h1 .ln:nth-child(1) span{animation-delay:.45s}
+  .hero h1 .ln:nth-child(2) span{animation-delay:.62s}
+  .hero h1 em{font-style:italic;color:var(--accent-soft);font-weight:300}
+  .hero-lede{
+    max-width:560px;font-size:clamp(16px,1.5vw,19px);
+    color:var(--text-dark-mute);line-height:1.65;
+    opacity:0;animation:fadeUp 1s var(--ease) .9s forwards;
+  }
+  .hero-actions{
+    display:flex;gap:18px;margin-top:38px;flex-wrap:wrap;align-items:center;
+    opacity:0;animation:fadeUp 1s var(--ease) 1.1s forwards;
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes lineRise{to{transform:translateY(0)}}
+  .btn-gold{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--accent);color:var(--ink);
+    font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+    padding:17px 32px;border-radius:2px;border:1px solid var(--accent);
+    transition:background .4s var(--ease),transform .4s var(--ease);
+  }
+  .btn-gold:hover{background:var(--accent-soft);transform:translateY(-2px)}
+  .btn-ghost{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--text-dark);padding:17px 4px;
+    border-bottom:1px solid var(--line-dark);
+    transition:border-color .4s var(--ease),color .4s var(--ease);
+  }
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent-soft)}
+  .scroll-cue{
+    position:absolute;right:clamp(24px,5vw,80px);bottom:46px;z-index:2;
+    writing-mode:vertical-rl;font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--text-dark-mute);display:flex;align-items:center;gap:14px;
+  }
+  .scroll-cue .bar{width:1px;height:54px;background:linear-gradient(var(--accent),transparent);display:block}
+
+  /* ---------- MARQUEE STRIP ---------- */
+  .strip{border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);background:var(--ink-soft);overflow:hidden}
+  .strip-row{display:flex;gap:64px;padding:22px 0;white-space:nowrap;animation:slide 38s linear infinite}
+  .strip:hover .strip-row{animation-play-state:paused}
+  @keyframes slide{to{transform:translateX(-50%)}}
+  .strip-item{
+    font-family:var(--font-display);font-size:16px;font-style:italic;font-weight:300;
+    color:var(--text-dark-mute);display:flex;align-items:center;gap:64px;letter-spacing:.01em;
+  }
+  .strip-item::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.7}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{position:relative}
+  .pad{padding:clamp(90px,13vh,170px) 0}
+  .pad-sm{padding:clamp(64px,9vh,120px) 0}
+  .light{background:var(--paper);color:var(--text-light)}
+  .light .eyebrow{color:var(--copper)}
+  .sec-head{max-width:760px;margin-bottom:clamp(54px,7vh,90px)}
+  .sec-head .eyebrow{display:block;margin-bottom:24px}
+  .sec-head h2{font-size:clamp(34px,5.2vw,68px)}
+  .sec-head p{margin-top:26px;font-size:clamp(16px,1.5vw,18px);max-width:620px}
+  .light .sec-head p{color:var(--text-light-mute)}
+  .dark .sec-head p{color:var(--text-dark-mute)}
+
+  /* ---------- PILLARS ---------- */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-light);border:1px solid var(--line-light)}
+  .pillar{
+    background:var(--paper);padding:clamp(34px,4vw,52px) clamp(30px,3vw,46px);
+    position:relative;transition:background .5s var(--ease);
+    min-height:430px;display:flex;flex-direction:column;
+  }
+  .pillar:hover{background:var(--paper-warm)}
+  .pillar-no{font-family:var(--font-display);font-size:15px;color:var(--copper);font-weight:500;letter-spacing:.08em}
+  .pillar h3{font-family:var(--font-display);font-weight:400;font-size:clamp(27px,2.8vw,36px);margin:20px 0 10px;line-height:1.08;letter-spacing:-.01em}
+  .pillar .role{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-light-mute);margin-bottom:22px}
+  .pillar p{font-size:15.5px;color:var(--text-light-mute);line-height:1.72;flex:1}
+  .pillar .tag{
+    display:inline-block;margin-top:26px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--text-light);border-top:1px solid var(--line-light);padding-top:18px;width:100%;
+  }
+  .pillar .tag b{color:var(--copper);font-weight:500}
+
+  /* ---------- NICHE STORY ---------- */
+  .niche{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,96px);align-items:center}
+  .niche-copy h2{font-size:clamp(32px,4.6vw,58px);margin:24px 0 28px}
+  .niche-copy p{color:var(--text-dark-mute);font-size:17px;margin-bottom:22px;max-width:540px}
+  .niche-copy p strong{color:var(--text-dark);font-weight:500}
+  .niche-figure{position:relative}
+  .niche-figure img{width:100%;border-radius:3px;filter:saturate(1.02)}
+  .niche-quote{
+    margin-top:34px;border-left:2px solid var(--accent);padding:6px 0 6px 26px;
+    font-family:var(--font-display);font-style:italic;font-weight:300;
+    font-size:clamp(19px,2.2vw,25px);line-height:1.4;color:var(--text-dark);max-width:520px;
+  }
+  .stat-row{display:flex;gap:48px;margin-top:46px;flex-wrap:wrap}
+  .stat .n{font-family:var(--font-display);font-size:clamp(40px,5vw,62px);font-weight:400;color:var(--accent-soft);line-height:1}
+  .stat .l{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dark-mute);margin-top:12px}
+
+  /* ---------- FULL-BLEED HARDWARE ---------- */
+  .bleed{position:relative;height:clamp(420px,72vh,760px);overflow:hidden}
+  .bleed img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);transition:transform 1.6s var(--ease)}
+  .bleed.in img{transform:scale(1)}
+  .bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,11,13,.5),rgba(10,11,13,.1) 40%,rgba(10,11,13,.7))}
+  .bleed-cap{position:absolute;left:clamp(24px,5vw,80px);bottom:clamp(40px,7vh,72px);z-index:2;max-width:600px}
+  .bleed-cap .eyebrow{display:block;margin-bottom:18px}
+  .bleed-cap h3{font-family:var(--font-display);font-weight:400;font-size:clamp(30px,4.4vw,56px);line-height:1.05;letter-spacing:-.01em}
+  .bleed-cap p{color:var(--text-dark-mute);margin-top:18px;font-size:16.5px;max-width:480px}
+
+  /* ---------- BMS ---------- */
+  .bms{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(40px,6vw,90px);align-items:center}
+  .bms-figure{position:relative;background:var(--ink-soft);border:1px solid var(--line-dark);border-radius:3px;overflow:hidden}
+  .bms-figure img{width:100%;object-fit:cover}
+  .bms-badge{
+    position:absolute;top:22px;left:22px;background:rgba(10,11,13,.78);backdrop-filter:blur(6px);
+    border:1px solid var(--line-dark);border-radius:2px;padding:9px 16px;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-soft);
+  }
+  .bms h2{font-size:clamp(34px,5vw,62px);margin:22px 0 14px}
+  .bms h2 em{font-style:italic;font-weight:300;color:var(--accent-soft)}
+  .bms .lede{color:var(--text-dark-mute);font-size:17px;margin-bottom:34px;max-width:560px}
+  .vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:3px;overflow:hidden;margin-bottom:34px}
+  .vs{background:var(--ink-soft);padding:24px 26px}
+  .vs h4{font-family:var(--font-sans);font-weight:500;font-size:14px;letter-spacing:.02em;color:var(--text-dark);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .vs h4 .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .vs p{font-size:14.5px;color:var(--text-dark-mute);line-height:1.62}
+  .vs-foot{font-size:13.5px;color:var(--text-dark-mute);margin-bottom:30px;line-height:1.65;max-width:580px}
+  .vs-foot b{color:var(--text-dark);font-weight:500}
+
+  /* ---------- DEPLOYMENTS ---------- */
+  .deploys{display:grid;gap:clamp(20px,2.5vw,28px)}
+  .deploy{
+    position:relative;display:grid;grid-template-columns:1.25fr 1fr;
+    background:var(--paper);border:1px solid var(--line-light);border-radius:3px;overflow:hidden;min-height:380px;
+  }
+  .deploy.flip{grid-template-columns:1fr 1.25fr}
+  .deploy.flip .deploy-media{order:2}
+  .deploy.flip .deploy-body{order:1}
+  .deploy-media{overflow:hidden;position:relative}
+  .deploy-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+  .deploy:hover .deploy-media img{transform:scale(1.05)}
+  .deploy-body{padding:clamp(34px,4vw,56px);display:flex;flex-direction:column;justify-content:center}
+  .deploy-body .klabel{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);font-weight:500}
+  .deploy-body h3{font-family:var(--font-display);font-weight:400;font-size:clamp(26px,3vw,40px);margin:16px 0 16px;line-height:1.06;letter-spacing:-.01em}
+  .deploy-body p{font-size:16px;color:var(--text-light-mute);line-height:1.72;max-width:460px}
+  .deploy-body .meta{margin-top:26px;display:flex;gap:30px;flex-wrap:wrap}
+  .deploy-body .meta div span{display:block}
+  .deploy-body .meta .mv{font-family:var(--font-display);font-size:24px;color:var(--text-light)}
+  .deploy-body .meta .ml{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light-mute);margin-top:4px}
+  .deploy.coming .deploy-media{display:flex;align-items:center;justify-content:center;background:var(--paper-warm)}
+  .coming-frame{text-align:center;padding:40px}
+  .coming-frame .cf-eye{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--copper)}
+  .coming-frame .cf-t{font-family:var(--font-display);font-style:italic;font-weight:300;font-size:clamp(24px,3vw,34px);color:var(--text-light);margin-top:14px}
+
+  /* ---------- SERVICES ---------- */
+  .svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
+  .svc{background:var(--ink);padding:clamp(30px,3.4vw,46px);transition:background .5s var(--ease)}
+  .svc:hover{background:var(--ink-soft)}
+  .svc .num{font-family:var(--font-display);font-size:14px;color:var(--accent)}
+  .svc h3{font-family:var(--font-display);font-weight:400;font-size:clamp(22px,2.4vw,30px);margin:14px 0 12px}
+  .svc p{font-size:15px;color:var(--text-dark-mute);line-height:1.68;max-width:440px}
+  .custom-note{
+    margin-top:30px;border:1px solid var(--line-dark);border-radius:3px;
+    padding:clamp(26px,3vw,38px);display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,3vw,44px);align-items:center;
+    background:var(--ink-soft);
+  }
+  .custom-note .cn-head{font-family:var(--font-display);font-weight:400;font-size:clamp(20px,2.2vw,27px);line-height:1.15;min-width:200px}
+  .custom-note p{font-size:14.5px;color:var(--text-dark-mute);line-height:1.7}
+
+  /* ---------- AI ASSISTANT ---------- */
+  .ai{background:linear-gradient(135deg,#15110a 0%,#0d0e10 60%);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)}
+  .ai-inner{display:grid;grid-template-columns:1fr .9fr;gap:clamp(40px,6vw,90px);align-items:center}
+  .ai-copy .eyebrow{display:block;margin-bottom:22px}
+  .ai-copy h2{font-size:clamp(32px,4.6vw,56px);margin-bottom:24px}
+  .ai-copy h2 em{font-style:italic;font-weight:300;color:var(--accent-soft)}
+  .ai-copy p{color:var(--text-dark-mute);font-size:17px;margin-bottom:18px;max-width:520px}
+  .ai-feats{display:flex;flex-direction:column;gap:14px;margin-top:30px}
+  .ai-feat{display:flex;gap:16px;align-items:flex-start}
+  .ai-feat .ic{flex-shrink:0;width:34px;height:34px;border:1px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:15px;margin-top:2px}
+  .ai-feat span{font-size:15px;color:var(--text-dark-mute)}
+  .ai-feat span b{color:var(--text-dark);font-weight:500}
+  /* chat mock */
+  .chat{background:rgba(10,11,13,.6);border:1px solid var(--line-dark);border-radius:8px;padding:24px;max-width:420px;margin-left:auto;width:100%}
+  .chat-head{display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line-dark);margin-bottom:20px}
+  .chat-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(200,162,74,.16)}
+  .chat-head .ct{font-size:13px;font-weight:500;color:var(--text-dark)}
+  .chat-head .cs{font-size:11px;color:var(--text-dark-mute);letter-spacing:.05em}
+  .bub{padding:13px 16px;border-radius:12px;font-size:14px;line-height:1.55;margin-bottom:12px;max-width:88%}
+  .bub.u{background:var(--ink-soft);color:var(--text-dark);margin-left:auto;border-bottom-right-radius:3px}
+  .bub.a{background:rgba(200,162,74,.12);border:1px solid rgba(200,162,74,.28);color:var(--text-dark);border-bottom-left-radius:3px}
+  .bub.a .by{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-soft);display:block;margin-bottom:6px}
+  .typing{display:flex;gap:5px;padding:14px 16px}
+  .typing i{width:7px;height:7px;border-radius:50%;background:var(--accent-soft);opacity:.5;animation:blink 1.3s infinite}
+  .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+  @keyframes blink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{border-top:1px solid var(--line-light)}
+  .faq-item{border-bottom:1px solid var(--line-light)}
+  .faq-q{
+    width:100%;background:none;border:none;cursor:pointer;text-align:left;
+    padding:30px 50px 30px 0;position:relative;
+    font-family:var(--font-display);font-weight:400;font-size:clamp(19px,2.1vw,26px);color:var(--text-light);
+    letter-spacing:-.01em;line-height:1.2;
+  }
+  .faq-q .pm{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:24px;color:var(--copper);transition:transform .4s var(--ease);font-family:var(--font-sans);font-weight:300}
+  .faq-item.open .faq-q .pm{transform:translateY(-50%) rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
+  .faq-a-inner{padding:0 60px 32px 0;font-size:16px;color:var(--text-light-mute);line-height:1.74;max-width:740px}
+
+  /* ---------- RFQ ---------- */
+  .rfq{background:var(--ink-soft);border-top:1px solid var(--line-dark)}
+  .rfq-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,96px)}
+  .rfq-left h2{font-size:clamp(34px,5vw,60px);margin:22px 0 24px}
+  .rfq-left p{color:var(--text-dark-mute);font-size:17px;margin-bottom:34px;max-width:430px}
+  .rfq-contact{display:flex;flex-direction:column;gap:20px;margin-top:40px;border-top:1px solid var(--line-dark);padding-top:34px}
+  .rfq-contact a,.rfq-contact div{display:flex;align-items:center;gap:16px;font-size:16px;color:var(--text-dark)}
+  .rfq-contact .ic{width:42px;height:42px;border:1px solid var(--line-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:17px;flex-shrink:0}
+  .rfq-contact .sub{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dark-mute);display:block;line-height:1.4}
+  form .row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .field{margin-bottom:22px;position:relative}
+  .field.full{grid-column:1/-1}
+  label{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dark-mute);margin-bottom:10px}
+  input,select,textarea{
+    width:100%;background:rgba(10,11,13,.5);border:1px solid var(--line-dark);
+    border-radius:3px;padding:15px 16px;color:var(--text-dark);font-family:var(--font-sans);font-size:15px;
+    transition:border-color .3s var(--ease),background .3s var(--ease);
+  }
+  input::placeholder,textarea::placeholder{color:#6c6e72}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);background:rgba(10,11,13,.75)}
+  select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8a24a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+  textarea{resize:vertical;min-height:120px}
+  .submit{
+    width:100%;background:var(--accent);color:var(--ink);border:1px solid var(--accent);
+    font-family:var(--font-sans);font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    padding:18px;border-radius:3px;cursor:pointer;margin-top:8px;
+    transition:background .4s var(--ease),transform .3s var(--ease);
+  }
+  .submit:hover{background:var(--accent-soft);transform:translateY(-2px)}
+  .form-success{
+    display:none;text-align:center;padding:48px 30px;border:1px solid rgba(200,162,74,.4);border-radius:6px;background:rgba(200,162,74,.06);
+  }
+  .form-success.show{display:block;animation:fadeUp .6s var(--ease)}
+  .form-success .ck{width:60px;height:60px;border-radius:50%;border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;color:var(--accent);font-size:28px}
+  .form-success h3{font-family:var(--font-display);font-weight:400;font-size:30px;color:var(--text-dark);margin-bottom:14px}
+  .form-success p{color:var(--text-dark-mute);font-size:16px;max-width:380px;margin:0 auto}
+  .form-note{font-size:13px;color:var(--text-dark-mute);margin-top:18px;line-height:1.6}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);border-top:1px solid var(--line-dark);padding:clamp(64px,9vh,100px) 0 44px}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:64px}
+  .foot-brand .brandmark{font-size:34px;margin-bottom:22px}
+  .foot-brand p{color:var(--text-dark-mute);font-size:15px;max-width:340px;line-height:1.7}
+  .foot-col h5{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;font-weight:500}
+  .foot-col a{display:block;color:var(--text-dark-mute);font-size:15px;margin-bottom:13px;transition:color .3s var(--ease)}
+  .foot-col a:hover{color:var(--text-dark)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;border-top:1px solid var(--line-dark);padding-top:30px}
+  .foot-bottom p{font-size:13px;color:var(--text-dark-mute)}
+  .foot-bottom .fb-links{display:flex;gap:28px}
+  .foot-bottom .fb-links a{font-size:13px;color:var(--text-dark-mute)}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:980px){
+    .navlinks{display:none}
+    .menu-btn{display:block}
+    .niche,.bms,.ai-inner,.rfq-grid{grid-template-columns:1fr;gap:48px}
+    .ai .chat{margin:0 auto}
+    .pillars{grid-template-columns:1fr}
+    .svc-grid{grid-template-columns:1fr}
+    .deploy,.deploy.flip{grid-template-columns:1fr}
+    .deploy.flip .deploy-media{order:0}.deploy.flip .deploy-body{order:0}
+    .deploy-media{min-height:280px}
+    .custom-note{grid-template-columns:1fr;gap:18px}
+    .foot-top{grid-template-columns:1fr 1fr}
+    .vs-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:560px){
+    .foot-top{grid-template-columns:1fr}
+    form .row{grid-template-columns:1fr}
+    .stat-row{gap:30px}
+    .scroll-cue{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    .reveal{opacity:1!important;transform:none!important}
+    .hero h1 .ln span{transform:none!important}
+    .hero-media img{transform:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brandmark">EV<b>Drive</b></a>
+  <nav class="navlinks">
+    <a href="#products">Products</a>
+    <a href="#bms">BetterBMS</a>
+    <a href="#deployments">Deployments</a>
+    <a href="#services">Services</a>
+    <a href="#assistant">AI Concierge</a>
+  </nav>
+  <a href="#rfq" class="nav-cta">Request a Quote</a>
+  <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('mobile-open')">&#9776;</button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-media">
+    <img src="images/hero-build.jpg" alt="EVDrive high-performance electric build">
+  </div>
+  <div class="hero-inner wrap">
+    <div class="hero-eyebrow eyebrow">Portland, Oregon &middot; Engineered since 2009</div>
+    <h1 class="display">
+      <span class="ln"><span>The power source</span></span>
+      <span class="ln"><span>for <em>serious</em> machines.</span></span>
+    </h1>
+    <p class="hero-lede">EVDrive engineers premium battery modules, liquid-cooled packs, and the BetterBMS for the builders, programs, and manufacturers who measure performance by the record book, not the spec sheet.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-gold">Explore the engineering <span aria-hidden="true">&rarr;</span></a>
+      <a href="#rfq" class="btn-ghost">Request a quote</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span class="bar"></span>Scroll</div>
+</section>
+
+<!-- ============ STRIP ============ -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-row">
+    <span class="strip-item">Battery modules</span>
+    <span class="strip-item">Liquid-cooled packs</span>
+    <span class="strip-item">BetterBMS</span>
+    <span class="strip-item">Motorsport &amp; OEM</span>
+    <span class="strip-item">Class-leading density</span>
+    <span class="strip-item">In-house validation</span>
+    <span class="strip-item">Battery modules</span>
+    <span class="strip-item">Liquid-cooled packs</span>
+    <span class="strip-item">BetterBMS</span>
+    <span class="strip-item">Motorsport &amp; OEM</span>
+    <span class="strip-item">Class-leading density</span>
+    <span class="strip-item">In-house validation</span>
+  </div>
+</div>
+
+<!-- ============ PRODUCT PILLARS ============ -->
+<section class="pad light" id="products">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What we build</span>
+      <h2 class="display">Three pillars of electric power.</h2>
+      <p>Ten years of in-house research, built on the cells the industry already trusts, refined to a standard the industry rarely reaches.</p>
+    </div>
+    <div class="pillars reveal">
+      <article class="pillar">
+        <span class="pillar-no">01</span>
+        <h3>Battery Modules</h3>
+        <div class="role">The core IP</div>
+        <p>A decade of in-house R&amp;D on standard 21700 cells, engineered for class-leading power and energy density in the same footprint. These are not commodity modules. They are priced for the performance buyer who needs every usable watt-hour and every available amp, and who understands why that costs more.</p>
+        <span class="tag">Standard 21700 cells, <b>uncommon results</b></span>
+      </article>
+      <article class="pillar">
+        <span class="pillar-no">02</span>
+        <h3>Battery Packs</h3>
+        <div class="role">Engineered &amp; validated</div>
+        <p>Liquid-cooled packs designed, assembled, and validated entirely in-house. Thermal performance, structural integrity, and integration are engineered as one system, so the pack behaves the same on the dyno, on the track, and on the worst day it will ever see.</p>
+        <span class="tag">Designed in-house, <b>proven in-house</b></span>
+      </article>
+      <article class="pillar">
+        <span class="pillar-no">03</span>
+        <h3>BetterBMS</h3>
+        <div class="role">The new flagship</div>
+        <p>Five years developed inside our own packs before it ever carried a name. The BetterBMS is sold to builders and to small OEMs alike, the brain that turns a stack of cells into a safe, configurable, race-ready system. It earns its own section below.</p>
+        <span class="tag">Five years in our packs, <b>now yours</b></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FULL-BLEED HARDWARE ============ -->
+<section class="bleed" id="bleed1" aria-label="EVDrive hardware">
+  <img src="images/hardware-band.png" alt="EVDrive engineering hardware">
+  <div class="bleed-cap">
+    <span class="eyebrow">Engineering, shown plainly</span>
+    <h3 class="display">Hardware that earns its premium.</h3>
+    <p>Every module, pack, and controller is built to be looked at closely. The detail is the point.</p>
+  </div>
+</section>
+
+<!-- ============ PREMIUM NICHE STORY ============ -->
+<section class="pad dark">
+  <div class="wrap">
+    <div class="niche">
+      <div class="niche-copy reveal">
+        <span class="eyebrow">The premium niche</span>
+        <h2 class="display">The demand did not disappear. It moved.</h2>
+        <p>Cascadia Motion sold comparable premium modules at the same price point we hold today. They sold every one they could make, then stepped away to focus on motors.</p>
+        <p><strong>That demand never went anywhere.</strong> The performance programs, integrators, and manufacturers who needed that grade of module still need it. EVDrive owns that vacated demand, and we built the capacity to serve it properly.</p>
+        <div class="niche-quote">"They sold all they could make, then exited. We were already building the same grade. Now it is ours to deliver."</div>
+        <div class="stat-row">
+          <div class="stat"><div class="n">2009</div><div class="l">Engineering since</div></div>
+          <div class="stat"><div class="n">10 yrs</div><div class="l">Module R&amp;D in-house</div></div>
+          <div class="stat"><div class="n">5 yrs</div><div class="l">BetterBMS proven</div></div>
+        </div>
+      </div>
+      <div class="niche-figure reveal">
+        <img src="images/hw-1.png" alt="EVDrive premium battery module hardware">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BMS SECTION ============ -->
+<section class="pad light" id="bms" style="background:var(--paper-warm)">
+  <div class="wrap">
+    <div class="bms">
+      <div class="bms-figure reveal">
+        <span class="bms-badge">BetterBMS &middot; Flagship</span>
+        <img src="images/hw-2.png" alt="BetterBMS battery management system">
+      </div>
+      <div class="bms-copy reveal">
+        <span class="eyebrow">The brain of the pack</span>
+        <h2 class="display">Meet <em>BetterBMS</em>.</h2>
+        <p class="lede">A battery management system developed across five years inside our own packs, then released to the builders and small OEMs who need management they can actually trust. Here is the honest case for choosing it over AEM, Vero, or Orion.</p>
+        <div class="vs-grid">
+          <div class="vs">
+            <h4><span class="dot"></span>Cell-level monitoring</h4>
+            <p>Per-cell voltage and temperature sensing across the full stack, not block averages. You see the one cell that is drifting before it becomes the cell that fails, which is exactly the resolution serious programs demand.</p>
+          </div>
+          <div class="vs">
+            <h4><span class="dot"></span>Fault tolerance &amp; safety</h4>
+            <p>Layered protection with redundant fault detection, defined safe states, and contactor control engineered for high-energy packs. Safety logic proven over five years in our own race and record builds, not adapted from a hobby board.</p>
+          </div>
+          <div class="vs">
+            <h4><span class="dot"></span>Configurability</h4>
+            <p>Tunable cell chemistry profiles, thresholds, balancing strategy, and CAN mapping, so the same BMS adapts to a 45 kWh record pack or a compact builder pack without forcing a one-size compromise.</p>
+          </div>
+          <div class="vs">
+            <h4><span class="dot"></span>Native pack integration</h4>
+            <p>Engineered alongside EVDrive packs, so sensing, balancing, and thermal logic are matched to the hardware from day one. With AEM, Vero, or Orion you integrate a third party. With BetterBMS the pack and the brain were designed together.</p>
+          </div>
+        </div>
+        <p class="vs-foot"><b>Firmware and support that stays with you.</b> Maintained firmware, documented CAN, and direct access to the engineers who built it. When a question comes up at midnight before a race, you reach the people who designed the system, not a queue.</p>
+        <a href="https://ev-battery-management-system.com" class="btn-gold" target="_blank" rel="noopener">Explore BetterBMS in full <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPLOYMENTS ============ -->
+<section class="pad dark" id="deployments">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Proven in the world</span>
+      <h2 class="display">Where the engineering shows up.</h2>
+      <p>Real products, in real machines, photographed where they ran. Not concept renders.</p>
+    </div>
+    <div class="deploys">
+      <article class="deploy reveal">
+        <div class="deploy-media"><img src="images/deploy-genovation.jpg" alt="Genovation electric Corvette with EVDrive pack"></div>
+        <div class="deploy-body">
+          <span class="klabel">Top-speed record</span>
+          <h3 class="display">Genovation Electric Corvette</h3>
+          <p>EVDrive engineered the 45 kWh liquid-cooled pack at the heart of the Genovation electric Corvette. On its very first run, the car set a top-speed record. The pack delivered the energy and the thermal headroom to put the number in the book on the first attempt.</p>
+          <div class="meta">
+            <div><span class="mv">45 kWh</span><span class="ml">Liquid-cooled pack</span></div>
+            <div><span class="mv">1st run</span><span class="ml">Record on debut</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="deploy flip reveal">
+        <div class="deploy-media"><img src="images/deploy-webasto.jpg" alt="Webasto Mustang electric drive system by EVDrive"></div>
+        <div class="deploy-body">
+          <span class="klabel">SEMA 2019</span>
+          <h3 class="display">Webasto Mustang</h3>
+          <p>For the Webasto Mustang, EVDrive built the complete drive system, putting more than 1,000 ft-lbs of torque to the ground. It debuted on the show floor at SEMA 2019 as a statement of what a fully engineered electric driveline can do.</p>
+          <div class="meta">
+            <div><span class="mv">1,000+</span><span class="ml">Ft-lbs torque</span></div>
+            <div><span class="mv">SEMA &rsquo;19</span><span class="ml">Show debut</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="deploy coming reveal">
+        <div class="deploy-media">
+          <div class="coming-frame">
+            <div class="cf-eye">Finishing now</div>
+            <div class="cf-t">A new high-end build, revealed soon.</div>
+          </div>
+        </div>
+        <div class="deploy-body">
+          <span class="klabel">Coming soon</span>
+          <h3 class="display">The next one</h3>
+          <p>A high-end individual build is in final assembly in the EVDrive shop right now. It carries the same modules, the same packs, and the same BetterBMS that set records, applied to a one-off worth waiting for. Details to follow.</p>
+          <div class="meta">
+            <div><span class="mv">In build</span><span class="ml">Final assembly</span></div>
+            <div><span class="mv">Reveal</span><span class="ml">Coming soon</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="pad dark" id="services" style="background:var(--ink-soft)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What we offer</span>
+      <h2 class="display">Engineering, supply, and support.</h2>
+      <p>Built for OEMs, performance and motorsport programs, and integrators who need a partner, not a parts bin.</p>
+    </div>
+    <div class="svc-grid reveal">
+      <article class="svc">
+        <span class="num">01</span>
+        <h3 class="display">Module &amp; pack supply</h3>
+        <p>Premium 21700 modules and liquid-cooled packs, supplied to performance buyers and manufacturers who need class-leading density delivered to a known, repeatable standard.</p>
+      </article>
+      <article class="svc">
+        <span class="num">02</span>
+        <h3 class="display">BetterBMS &amp; integration</h3>
+        <p>The BetterBMS sold to builders and small OEMs, with the engineering support to integrate it cleanly into your pack, your chassis, and your CAN network.</p>
+      </article>
+      <article class="svc">
+        <span class="num">03</span>
+        <h3 class="display">System engineering</h3>
+        <p>Complete drive-system design and validation, the same in-house capability that built the Genovation pack and the Webasto driveline, applied to your program.</p>
+      </article>
+      <article class="svc">
+        <span class="num">04</span>
+        <h3 class="display">Firmware &amp; lifecycle support</h3>
+        <p>Maintained firmware, documented interfaces, and direct engineer access through the life of your deployment, so the system you buy keeps performing.</p>
+      </article>
+    </div>
+    <div class="custom-note reveal">
+      <div class="cn-head display">Select custom builds</div>
+      <p>EVDrive takes on a small number of complete custom electric builds each year, by selection. These are premium, fully engineered one-off projects, not budget conversions. If your project belongs in that company, start with a quote and tell us what you are building.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI ASSISTANT ============ -->
+<section class="pad ai" id="assistant">
+  <div class="wrap">
+    <div class="ai-inner">
+      <div class="ai-copy reveal">
+        <span class="eyebrow">Always-on AI concierge</span>
+        <h2 class="display">An expert answer, the <em>instant</em> you ask.</h2>
+        <p>Serious buyers move fast, and so do we. The EVDrive AI concierge answers technical and product questions the moment they land, drawing on our real engineering knowledge to qualify your project and route it straight to the right engineer.</p>
+        <div class="ai-feats">
+          <div class="ai-feat"><span class="ic" aria-hidden="true">&#10003;</span><span><b>Instant technical answers.</b> Module density, pack architecture, BMS configurability, lead times, asked in plain language, answered right away.</span></div>
+          <div class="ai-feat"><span class="ic" aria-hidden="true">&#10003;</span><span><b>It never sleeps.</b> A buyer in another time zone gets a real, useful answer at any hour, then a warm handoff to our team.</span></div>
+          <div class="ai-feat"><span class="ic" aria-hidden="true">&#10003;</span><span><b>It moves your project forward.</b> The concierge captures the scope and hands the engineers a head start, so your quote is faster and sharper.</span></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="chat" id="chatmock">
+          <div class="chat-head">
+            <span class="chat-dot"></span>
+            <div><div class="ct">EVDrive Concierge</div><div class="cs">Online &middot; replies instantly</div></div>
+          </div>
+          <div class="chat-body" id="chatbody">
+            <div class="bub u">Can your modules handle a sustained high-discharge motorsport pack?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="pad light" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Good questions</span>
+      <h2 class="display">Before you ask for a quote.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">Who does EVDrive build for?<span class="pm" aria-hidden="true">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">OEMs, performance and motorsport programs, and integrators. Our modules and packs are premium products engineered for buyers who need class-leading power and energy density and who value proven, validated hardware over the lowest price.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What makes the modules worth a premium?<span class="pm" aria-hidden="true">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Ten years of in-house R&amp;D on standard 21700 cells, tuned for class-leading power and energy density in the same footprint. You get more usable energy and more deliverable current per pack, validated in-house, which is exactly what performance programs are paying for.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I buy the BetterBMS on its own?<span class="pm" aria-hidden="true">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. The BetterBMS is sold to builders and to small OEMs, both alongside our packs and as a standalone system. It lives on its own site with full detail at ev-battery-management-system.com, and our team supports integration into your hardware.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you still do EV conversions?<span class="pm" aria-hidden="true">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">We take on a small number of select custom builds each year, by selection. These are premium, fully engineered one-off projects. They are not budget conversions, and our focus is our battery modules, packs, and the BetterBMS.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What has EVDrive engineering actually achieved?<span class="pm" aria-hidden="true">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Our 45 kWh liquid-cooled pack powered the Genovation electric Corvette to a top-speed record on its first run, and we built the complete drive system for the Webasto Mustang, putting more than 1,000 ft-lbs to the ground at SEMA 2019. A new high-end build is finishing now.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RFQ ============ -->
+<section class="pad rfq" id="rfq">
+  <div class="wrap">
+    <div class="rfq-grid">
+      <div class="rfq-left reveal">
+        <span class="eyebrow">Start a conversation</span>
+        <h2 class="display">Request a quote.</h2>
+        <p>Tell us what you are building. We will get the right engineer on it and come back with a real answer, fast.</p>
+        <div class="rfq-contact">
+          <a href="tel:19717540434"><span class="ic" aria-hidden="true">&#9742;</span><span>(971) 754-0434<span class="sub">Speak with engineering</span></span></a>
+          <div><span class="ic" aria-hidden="true">&#9873;</span><span>Portland, Oregon<span class="sub">Designed, built, and validated in-house</span></span></div>
+          <a href="https://ev-battery-management-system.com" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">&#9881;</span><span>BetterBMS<span class="sub">ev-battery-management-system.com</span></span></a>
+        </div>
+      </div>
+      <div class="rfq-right reveal">
+        <form id="rfqForm" novalidate>
+          <div class="row">
+            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
+            <div class="field"><label for="company">Company / program</label><input id="company" name="company" type="text" placeholder="Organization" required></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@company.com" required></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="(  )  -"></div>
+          </div>
+          <div class="field full">
+            <label for="interest">What do you need?</label>
+            <select id="interest" name="interest" required>
+              <option value="" disabled selected>Select a focus</option>
+              <option>Battery modules</option>
+              <option>Liquid-cooled battery packs</option>
+              <option>BetterBMS</option>
+              <option>Complete drive system engineering</option>
+              <option>Select custom build</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="project">Tell us about the project</label>
+            <textarea id="project" name="project" placeholder="Application, target performance, timeline, anything that helps us scope it." required></textarea>
+          </div>
+          <button type="submit" class="submit">Send the request</button>
+          <p class="form-note">Prefer to talk it through? Call engineering directly at (971) 754-0434.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="ck" aria-hidden="true">&#10003;</div>
+          <h3 class="display">Request received.</h3>
+          <p>Thank you. The right EVDrive engineer will review your project and reach out shortly. For anything urgent, call (971) 754-0434.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="brandmark">EV<b>Drive</b></a>
+        <p>High-performance EV battery modules, liquid-cooled packs, and the BetterBMS. Engineered, built, and validated in-house in Portland, Oregon since 2009.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Products</h5>
+        <a href="#products">Battery modules</a>
+        <a href="#products">Liquid-cooled packs</a>
+        <a href="#bms">BetterBMS</a>
+        <a href="https://ev-battery-management-system.com" target="_blank" rel="noopener">BetterBMS site</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#deployments">Deployments</a>
+        <a href="#services">Services</a>
+        <a href="#assistant">AI concierge</a>
+        <a href="#rfq">Request a quote</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; 2026 EVDrive. Portland, Oregon. (971) 754-0434.</p>
+      <div class="fb-links">
+        <a href="#top">Back to top</a>
+        <a href="https://ev-battery-management-system.com" target="_blank" rel="noopener">BetterBMS</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  var onScroll=function(){nav.classList.toggle('solid',window.scrollY>40)};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.16,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal,.bleed').forEach(function(el){io.observe(el)});
+
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
+    q.addEventListener('click',function(){
+      var open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=null});
+      if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+    });
+  });
+
+  var form=document.getElementById('rfqForm');
+  if(form){
+    form.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+      if(!form.checkValidity()){
+        var first=form.querySelector(':invalid');if(first)first.focus();return;
+      }
+      form.style.transition='opacity .4s ease';form.style.opacity='0';
+      setTimeout(function(){
+        form.style.display='none';
+        var s=document.getElementById('formSuccess');s.classList.add('show');
+        if(!reduce)s.scrollIntoView({behavior:'smooth',block:'center'});
+      },reduce?0:400);
+    });
+  }
+
+  // AI concierge: type out a credible engineered answer once in view
+  var chat=document.getElementById('chatmock'),body=document.getElementById('chatbody'),fired=false;
+  var reduceM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function reply(){
+    if(fired)return;fired=true;
+    var typing=document.createElement('div');
+    typing.className='typing';typing.innerHTML='<i></i><i></i><i></i>';
+    typing.style.cssText='display:flex;gap:5px;padding:14px 16px';
+    body.appendChild(typing);
+    var text="Yes. Our 21700 modules are engineered for class-leading power density, exactly the sustained high-discharge profile motorsport packs demand, and they pair with our liquid-cooled packs and the BetterBMS for cell-level thermal and fault management. Tell me your target current and pack voltage and I will route you to the right engineer.";
+    setTimeout(function(){
+      if(typing.parentNode)typing.parentNode.removeChild(typing);
+      var bub=document.createElement('div');bub.className='bub a';
+      bub.innerHTML='<span class="by">EVDrive Concierge</span>'+(reduceM?text:'');
+      body.appendChild(bub);
+      if(reduceM){return}
+      var i=0;(function tw(){if(i<=text.length){bub.innerHTML='<span class="by">EVDrive Concierge</span>'+text.slice(0,i);i+=2;setTimeout(tw,16)}})();
+    },reduceM?0:1300);
+  }
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)reply()})},{threshold:.5});
+  if(chat)cio.observe(chat);
+})();
+</script>
+</body>
+</html>
