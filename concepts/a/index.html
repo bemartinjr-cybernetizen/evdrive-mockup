@@ -102,25 +102,25 @@
   }
   .hero-media{position:absolute;inset:0;z-index:0}
   .hero-media img{
-    width:100%;height:100%;object-fit:cover;object-position:center 42%;
+    width:100%;height:100%;object-fit:cover;object-position:center 34%;
     transform:scale(1.08);
     animation:heroDrift 18s var(--ease) forwards;
   }
   @keyframes heroDrift{to{transform:scale(1)}}
   .hero-media::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(10,11,13,.55) 0%,rgba(10,11,13,.12) 32%,rgba(10,11,13,.25) 62%,rgba(10,11,13,.94) 100%);
+    background:linear-gradient(180deg,rgba(10,11,13,.38) 0%,rgba(10,11,13,.05) 24%,rgba(10,11,13,.34) 58%,rgba(10,11,13,.97) 100%);
   }
   .hero-media::before{
     content:"";position:absolute;inset:0;z-index:1;
     background:linear-gradient(90deg,rgba(10,11,13,.6) 0%,rgba(10,11,13,0) 55%);
   }
   .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:clamp(56px,9vh,120px)}
-  .hero-eyebrow{margin-bottom:30px;opacity:0;animation:fadeUp 1s var(--ease) .3s forwards}
+  .hero-eyebrow{margin-bottom:18px;opacity:0;animation:fadeUp 1s var(--ease) .3s forwards}
   .hero h1{
-    font-size:clamp(52px,9vw,140px);
+    font-size:clamp(40px,6.4vw,94px);
     color:var(--text-dark);
-    margin-bottom:28px;
+    margin-bottom:20px;
     text-wrap:balance;
   }
   .hero h1 .ln{display:block;overflow:hidden}
@@ -325,6 +325,17 @@
   .typing i{width:7px;height:7px;border-radius:50%;background:var(--accent-soft);opacity:.5;animation:blink 1.3s infinite}
   .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
   @keyframes blink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+
+  /* ---------- MAILING LIST ---------- */
+  .notify{margin-top:24px;border-top:1px solid var(--line-light);padding-top:22px}
+  .notify .nf-label{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--copper);margin-bottom:12px}
+  .notify .nf-row{display:flex;gap:8px}
+  .notify input{flex:1;background:#fff;border:1px solid var(--line-light);border-radius:4px;padding:12px 14px;font-family:var(--font-sans);font-size:14px;color:#16181c}
+  .notify input:focus{outline:none;border-color:var(--accent)}
+  .notify button{background:var(--accent);color:var(--ink);border:0;border-radius:4px;padding:0 16px;font-family:var(--font-sans);font-weight:500;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+  .notify button:hover{background:var(--accent-soft)}
+  .nf-done{color:var(--copper);font-size:14px;font-style:italic}
+  @media(max-width:480px){.notify .nf-row{flex-direction:column}.notify button{padding:12px}}
 
   /* ---------- FAQ ---------- */
   .faq-list{border-top:1px solid var(--line-light)}
@@ -627,6 +638,10 @@
             <div><span class="mv">In build</span><span class="ml">Final assembly</span></div>
             <div><span class="mv">Reveal</span><span class="ml">Coming soon</span></div>
           </div>
+          <form class="notify" onsubmit="event.preventDefault();this.innerHTML='<span class=&quot;nf-done&quot;>You are on the list. You will see the reveal first.</span>';">
+            <div class="nf-label">Be the first to see it</div>
+            <div class="nf-row"><input type="email" required placeholder="Your email" aria-label="Email"><button type="submit">Join the mailing list <span aria-hidden="true">&rarr;</span></button></div>
+          </form>
         </div>
       </article>
     </div>
