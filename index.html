@@ -11,12 +11,7 @@
   <a class="brand" href="index.html"><img src="images/evdrive-logo.png" alt="EVDrive"><b>EVDrive</b></a>
   <ul>
     <li class="has-menu"><a class="navlink" href="#products">Products ▾</a>
-      <div class="menu">
-        <a href="#products">Battery Modules</a><a href="#products">Battery Packs</a>
-        <a href="https://ev-battery-management-system.com">BMS · BetterBMS ↗</a>
-        <a href="#products">Motors &amp; Controllers</a><a href="#products">SMART PDU</a>
-        <a href="#products">Charger / DC-DC</a><a href="#products">EVD Dyno</a>
-      </div></li>
+      <div class="menu"><a href="#products">Battery Modules</a><a href="#products">Battery Packs</a><a href="https://ev-battery-management-system.com">BMS · BetterBMS ↗</a><a href="#products">Motors &amp; Controllers</a><a href="#products">SMART PDU</a><a href="#products">Charger / DC-DC</a><a href="#products">EVD Dyno</a></div></li>
     <li class="has-menu"><a class="navlink" href="#services">Services ▾</a>
       <div class="menu"><a href="#services">Engineering Services</a><a href="#services">Dyno Testing</a></div></li>
     <li><a class="navlink" href="#deployments">Deployments</a></li>
@@ -30,16 +25,21 @@
   <button class="nav-toggle" onclick="document.querySelector('.nav ul').style.display='flex'">☰</button>
 </div></header>
 
-<!-- HERO -->
-<section class="hero" style="padding-bottom:clamp(56px,8vw,96px)">
+<!-- HERO (split, real photo) -->
+<section class="hero">
   <div class="scrim-grid"></div>
   <div class="wrap">
-    <span class="eyebrow on-dark">Portland, OR · Engineering since 2009</span>
-    <h1 style="margin-top:18px">High-performance EV<br>battery systems <span class="volt">&amp; BMS.</span></h1>
-    <p class="lede">EVDrive designs and builds battery modules, packs, and battery-management systems for the builds that can't compromise — OEM programs, performance vehicles, and integrators who need real power and energy density, not off-the-shelf averages.</p>
-    <div class="cta-row">
-      <a class="btn btn-volt" href="#quote">Request a Quote →</a>
-      <a class="btn btn-ghost" href="https://ev-battery-management-system.com">Explore our BMS ↗</a>
+    <div class="hero-split">
+      <div>
+        <span class="eyebrow on-dark">Portland, OR · Engineering since 2009</span>
+        <h1 style="margin-top:18px">High-performance EV<br>battery systems <span class="volt">&amp; BMS.</span></h1>
+        <p class="lede">We design and build battery modules, packs, and battery-management systems for the builds that can't compromise — OEM programs, performance vehicles, and integrators who need real power and energy density, not off-the-shelf averages.</p>
+        <div class="cta-row">
+          <a class="btn btn-volt" href="#quote">Request a Quote →</a>
+          <a class="btn btn-ghost" href="https://ev-battery-management-system.com">Explore our BMS ↗</a>
+        </div>
+      </div>
+      <div class="img-frame"><img src="images/hero-build.jpg" alt="EVDrive high-performance build"><span class="tagchip">EVDrive build · photo</span></div>
     </div>
     <div class="spec-strip">
       <div class="cell"><div class="n"><b>10</b> yrs</div><div class="l">Battery module R&amp;D</div></div>
@@ -67,6 +67,21 @@
         <ul class="spec-rows"><li><span class="k">Retail</span><span class="v">BetterBMS store</span></li><li><span class="k">OEM</span><span class="v">EVDrive brand</span></li><li><span class="k">Margin</span><span class="v">Bread &amp; butter</span></li></ul>
         <a class="arrow" href="https://ev-battery-management-system.com">Go to the BMS site ↗</a></div>
     </div>
+    <div class="media-row">
+      <div class="thumb"><img src="images/hw-1.png" alt="EVDrive hardware"></div>
+      <div class="thumb"><img src="images/hw-2.png" alt="EVDrive controller hardware"></div>
+      <div class="thumb"><img src="images/hw-3.jpg" alt="EVDrive SMART PDU"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO BAND (pizzazz) -->
+<section class="photo-band" style="padding:0">
+  <img class="bg" src="images/hardware-band.png" alt="EVDrive engineering">
+  <div class="wrap pb-in">
+    <span class="eyebrow on-dark">In-house, end to end</span>
+    <h2>Designed, built, and validated under one roof.</h2>
+    <p>Module chemistry, pack integration, BMS firmware, and dyno validation — engineered together in Portland, not assembled from someone else's parts list.</p>
   </div>
 </section>
 
@@ -97,7 +112,7 @@
       <div><span class="eyebrow on-dark">Introducing</span>
         <h2 style="margin:12px 0 14px">BetterBMS — the management system we built because nothing else was good enough.</h2>
         <p style="margin:0 0 22px;max-width:60ch">A standalone EV battery management system for converters, builders, and small OEMs. A cleaner alternative to AEM, Vero, and Orion — live on its own site, with specs, comparisons, and direct ordering.</p>
-        <a class="btn btn-volt" href="https://ev-battery-management-system.com">Visit ev-battery-management-system.com ↗</a></div>
+        <a class="btn btn-volt" href="https://ev-battery-management-system.com">Visit the BMS site ↗</a></div>
       <div class="cards" style="margin:0"><div class="card sec-dark" style="background:rgba(0,0,0,.25)">
         <span class="kicker">vs. the field</span>
         <ul class="spec-rows" style="margin-top:12px"><li><span class="k">AEM</span><span class="v">→ Bettered</span></li><li><span class="k">Vero</span><span class="v">→ Bettered</span></li><li><span class="k">Orion</span><span class="v">→ Bettered</span></li></ul></div></div>
@@ -105,16 +120,16 @@
   </div>
 </section>
 
-<!-- DEPLOYMENTS -->
+<!-- DEPLOYMENTS (real photos) -->
 <section id="deployments" class="sec-dark">
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow on-dark">Proven in the field</span>
       <h2>Our hardware, in builds that set records.</h2>
       <p class="lede">Not conversion jobs — deployments of our battery systems and drive hardware in programs you've heard of.</p></div>
     <div class="deploy">
-      <div class="proof"><div class="ph"><span class="badge">Genovation · photo</span></div><div class="body"><div class="stat">45 kWh · top-speed record</div><h3>Genovation Electric Corvette</h3><p>Our liquid-cooled ultra-high-performance pack set a new top-speed record on its first run.</p></div></div>
-      <div class="proof"><div class="ph"><span class="badge">Webasto · photo</span></div><div class="body"><div class="stat">1,000+ ft-lbs · SEMA 2019</div><h3>Webasto Mustang</h3><p>We designed and built the electric drive system for a Tier-1 supplier's showcase build.</p></div></div>
-      <div class="proof"><div class="ph"><span class="badge">Coming soon · placeholder</span></div><div class="body"><div class="stat">High-end build · 2026</div><h3>Next showcase</h3><p>A premium individual build, finishing now — the first we'll be free to feature.</p></div></div>
+      <div class="proof"><div class="ph img"><img src="images/deploy-genovation.jpg" alt="Genovation electric Corvette"><span class="badge tag">Genovation</span></div><div class="body"><div class="stat">45 kWh · top-speed record</div><h3>Genovation Electric Corvette</h3><p>Our liquid-cooled ultra-high-performance pack set a new top-speed record on its first run.</p></div></div>
+      <div class="proof"><div class="ph img"><img src="images/deploy-webasto.jpg" alt="Webasto Mustang"><span class="badge tag">Webasto</span></div><div class="body"><div class="stat">1,000+ ft-lbs · SEMA 2019</div><h3>Webasto Mustang</h3><p>We designed and built the electric drive system for a Tier-1 supplier's showcase build.</p></div></div>
+      <div class="proof"><div class="ph img"><img src="images/deploy-third.jpg" alt="EVDrive build"><span class="badge tag">Build · confirm photo</span></div><div class="body"><div class="stat">High-end build</div><h3>Performance program</h3><p>One of several high-end systems EVDrive has delivered. A new individual build, finishing now, will be the next we can feature.</p></div></div>
     </div>
   </div>
 </section>
@@ -136,7 +151,7 @@
   <div class="wrap"><div class="sec-head"><span class="eyebrow">FAQ</span><h2>Questions buyers actually ask.</h2></div>
     <div class="faq">
       <details open><summary>Do you sell battery modules to individuals, or only OEMs?</summary><div class="a">Both. We supply performance-focused modules and packs to OEMs and integrators, and we sell our BMS to individual builders through the BetterBMS store as well as to OEMs under the EVDrive brand.</div></details>
-      <details><summary>How is your BMS better than AEM, Vero, or Orion?</summary><div class="a">We built ours after years of being unsatisfied with each of those. The full comparison — features, safety, and configurability — lives on ev-battery-management-system.com.</div></details>
+      <details><summary>How is your BMS better than AEM, Vero, or Orion?</summary><div class="a">We built ours after years of being unsatisfied with each of those. The full comparison — features, safety, and configurability — lives on the BetterBMS site.</div></details>
       <details><summary>Why are your batteries priced above commodity packs?</summary><div class="a">Because they're engineered for class-leading power and energy density on premium 21700 chemistry, for buyers who need the performance. If commodity capacity is the goal, we're honest that we're not the cheapest option.</div></details>
       <details><summary>Do you still do EV conversions?</summary><div class="a">Only select high-end builds. Our focus is battery systems and BMS, not standard low-cost conversions.</div></details>
     </div>
@@ -161,7 +176,6 @@
   </div></div>
 </section>
 
-<!-- FOOTER -->
 <footer class="site-foot"><div class="wrap">
   <div class="foot-grid">
     <div><img src="images/evdrive-logo.png" alt="EVDrive"><p style="max-width:34ch;color:var(--mist);font-size:14px">High-performance EV battery systems and BMS, engineered in Portland, Oregon since 2009.</p></div>
@@ -173,8 +187,4 @@
 </div></footer>
 
 <script src="assets/chat.js"></script>
-<script>
-document.querySelectorAll('.rev').forEach(function(e){e.classList.add('in')});
-var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.1});
-</script>
 </body></html>
