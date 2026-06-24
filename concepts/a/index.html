@@ -352,7 +352,7 @@
   .faq-a-inner{padding:0 60px 32px 0;font-size:16px;color:var(--text-light-mute);line-height:1.74;max-width:740px}
 
   /* ---------- RFQ ---------- */
-  .rfq{background:var(--ink-soft);border-top:1px solid var(--line-dark)}
+  .rfq{background:var(--paper-warm);border-top:1px solid var(--line-light)}
   .rfq-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,96px)}
   .rfq-left h2{font-size:clamp(34px,5vw,60px);margin:22px 0 24px}
   .rfq-left p{color:var(--text-dark-mute);font-size:17px;margin-bottom:34px;max-width:430px}
@@ -429,6 +429,21 @@
     .hero h1 .ln span{transform:none!important}
     .hero-media img{transform:none!important}
   }
+
+  /* RFQ light-mode (form must be visible; less black) */
+  .rfq{color:var(--text-light)}
+  .rfq-left h2{color:var(--text-light)}
+  .rfq-left p{color:var(--text-light-mute)}
+  .rfq input,.rfq select,.rfq textarea{background:#fff;border:1px solid var(--line-light);color:var(--text-light)}
+  .rfq input::placeholder,.rfq textarea::placeholder{color:#9a9ca0}
+  .rfq input:focus,.rfq select:focus,.rfq textarea:focus{border-color:var(--accent);background:#fff}
+  .rfq label{color:var(--text-light-mute)}
+  .rfq-contact{border-top:1px solid var(--line-light)}
+  .rfq-contact a,.rfq-contact div{color:var(--text-light)}
+  .rfq-contact .ic{border:1px solid var(--line-light)}
+  .rfq-contact .sub{color:var(--text-light-mute)}
+  .rfq .form-note{color:var(--text-light-mute)}
+  .rfq select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b66a3e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E")}
 </style>
 </head>
 <body>
@@ -650,7 +665,7 @@
 </section>
 
 <!-- ============ SERVICES ============ -->
-<section class="pad dark" id="services" style="background:var(--ink-soft)">
+<section class="pad light" id="services" style="background:var(--paper-warm)">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">What we offer</span>
