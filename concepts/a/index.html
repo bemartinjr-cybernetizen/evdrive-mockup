@@ -456,8 +456,7 @@
     <a href="#deployments">Deployments</a>
           <a href="../../blog/index.html">Blog</a>
     <a href="#services">Services</a>
-    <a href="#assistant">AI Concierge</a>
-  </nav>
+    </nav>
   <a href="#rfq" class="nav-cta">Request a Quote</a>
   <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('mobile-open')">&#9776;</button>
 </header>
@@ -702,36 +701,6 @@
 </section>
 
 <!-- ============ AI ASSISTANT ============ -->
-<section class="pad ai" id="assistant">
-  <div class="wrap">
-    <div class="ai-inner">
-      <div class="ai-copy reveal">
-        <span class="eyebrow">Always-on AI concierge</span>
-        <h2 class="display">An expert answer, the <em>instant</em> you ask.</h2>
-        <p>Serious buyers move fast, and so do we. The EVDrive AI concierge answers technical and product questions the moment they land, drawing on our real engineering knowledge to qualify your project and route it straight to the right engineer.</p>
-        <div class="ai-feats">
-          <div class="ai-feat"><span class="ic" aria-hidden="true">&#10003;</span><span><b>Instant technical answers.</b> Module density, pack architecture, BMS configurability, lead times, asked in plain language, answered right away.</span></div>
-          <div class="ai-feat"><span class="ic" aria-hidden="true">&#10003;</span><span><b>It never sleeps.</b> A buyer in another time zone gets a real, useful answer at any hour, then a warm handoff to our team.</span></div>
-          <div class="ai-feat"><span class="ic" aria-hidden="true">&#10003;</span><span><b>It moves your project forward.</b> The concierge captures the scope and hands the engineers a head start, so your quote is faster and sharper.</span></div>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="chat" id="chatmock"><div class="chat-label">Interactive demo · ask a question</div>
-          <div class="chat-head">
-            <span class="chat-dot"></span>
-            <div><div class="ct">EVDrive Concierge</div><div class="cs">Online &middot; replies instantly</div></div>
-          </div>
-          <div class="chat-body" id="chatbody">
-            <div class="bub u">Can your modules handle a sustained high-discharge motorsport pack?</div>
-          </div>
-          <div class="chat-chips" id="chatchips"></div>
-          <div class="chat-foot"><input id="chatin" placeholder="Ask about modules, packs, BMS, lead times…" autocomplete="off"><button id="chatsend" aria-label="Send">&#8593;</button></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ FAQ ============ -->
 <section class="pad light" id="faq">
   <div class="wrap">
@@ -836,7 +805,6 @@
         <h5>Company</h5>
         <a href="#deployments">Deployments</a>
         <a href="#services">Services</a>
-        <a href="#assistant">AI concierge</a>
         <a href="#rfq">Request a quote</a>
       </div>
     </div>
@@ -928,6 +896,50 @@
  ['Battery module specs','How is BetterBMS different?','Lead time and pricing','Book a call'].forEach(function(c){var b=document.createElement('button');b.className='chat-chip';b.textContent=c;b.onclick=function(){send(c);};chips.appendChild(b);});
  document.getElementById('chatsend').onclick=function(){send(input.value);};
  input.addEventListener('keydown',function(e){if(e.key==='Enter')send(input.value);});
+})();</script>
+<style>
+#fab{position:fixed;right:22px;bottom:22px;z-index:200;display:flex;align-items:center;gap:9px;background:var(--accent);color:#1a1407;font-family:var(--font-sans);font-weight:600;font-size:13.5px;border:0;padding:12px 17px;border-radius:999px;cursor:pointer;box-shadow:0 16px 40px -14px rgba(200,162,74,.6)}
+#fab .d{width:8px;height:8px;border-radius:50%;background:#1a1407}
+#fchat{position:fixed;right:22px;bottom:22px;z-index:201;width:min(368px,calc(100vw - 30px));height:min(540px,calc(100vh - 52px));background:#1e232b;border:1px solid rgba(200,162,74,.32);border-radius:16px;box-shadow:0 40px 90px -34px rgba(0,0,0,.8);display:none;flex-direction:column;overflow:hidden;font-family:var(--font-sans)}
+#fchat.on{display:flex}
+#fchat .fh{background:var(--ink);padding:14px 17px;border-bottom:1px solid rgba(200,162,74,.2);display:flex;align-items:center;gap:10px}
+#fchat .fh .av{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#1a1407;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600}
+#fchat .fh b{color:#fff;font-family:var(--font-display);font-size:15px}
+#fchat .fh small{color:var(--accent-soft);font-size:11px;display:block}
+#fchat .fh .x{margin-left:auto;background:0;border:0;color:#a7a8ab;font-size:22px;cursor:pointer}
+#fchat .fb{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+#fchat .b{max-width:85%;padding:11px 14px;border-radius:13px;font-size:14px;line-height:1.5}
+#fchat .b.u{background:var(--accent);color:#1a1407;align-self:flex-end;border-bottom-right-radius:3px;font-weight:500}
+#fchat .b.a{background:#272d36;color:#dfe2e6;align-self:flex-start;border-bottom-left-radius:3px}
+#fchat .fc{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 10px}
+#fchat .fc button{background:0;border:1px solid #3a4049;color:#aeb4bd;font-size:12px;padding:7px 11px;border-radius:999px;cursor:pointer;font-family:var(--font-sans)}
+#fchat .fc button:hover{border-color:var(--accent);color:var(--accent-soft)}
+#fchat .ff{display:flex;gap:8px;padding:12px;border-top:1px solid #2a3038;background:var(--ink)}
+#fchat .ff input{flex:1;background:#272d36;border:1px solid #3a4049;border-radius:999px;padding:11px 14px;color:#fff;font-family:var(--font-sans);font-size:14px}
+#fchat .ff input:focus{outline:0;border-color:var(--accent)}
+#fchat .ff button{background:var(--accent);border:0;color:#1a1407;width:40px;border-radius:50%;cursor:pointer;font-size:16px;font-weight:700}
+</style>
+<button id="fab"><span class="d"></span>Ask EVDrive AI</button>
+<div id="fchat"><div class="fh"><div class="av">E</div><div><b>EVDrive Assistant</b><small>Online, replies instantly</small></div><button class="x" aria-label="close">&times;</button></div><div class="fb" id="fbb"></div><div class="fc" id="fcc"></div><div class="ff"><input id="fin" placeholder="Ask about modules, packs, BMS, lead times" autocomplete="off"><button id="fsend" aria-label="send">&#8593;</button></div></div>
+<script>(function(){
+var KB=[
+ {k:['bms','better','aem','vero','orion'],a:"BetterBMS is our in-house battery management system: true cell-level monitoring, fault-tolerant safety, deep configurability, and native integration with our packs. Full detail and ordering live at ev-battery-management-system.com."},
+ {k:['module','21700','energy','power','density'],a:"Our modules use standard 21700 cells with premium high-performance chemistry, tuned for class-leading power and energy density. Tell me your target voltage, capacity, and continuous current and I will scope it."},
+ {k:['pack','liquid','cool'],a:"We build complete liquid-cooled high-performance packs, engineered and validated in-house. Share the program plus target energy and power and I will route you to an engineer."},
+ {k:['price','cost','quote','how much','lead','time'],a:"Pricing and lead time depend on chemistry, capacity, voltage, and volume. The fastest path is a short brief: application plus target specs. Want me to open the quote form?"},
+ {k:['book','call','schedule','meeting','talk'],a:"__S__"},
+ {k:['convert','conversion','swap'],a:"We focus on battery systems and BMS, and take on only select high-end custom builds. For a standard conversion we are likely not the best fit."}
+];
+function rep(t){t=t.toLowerCase();for(var i=0;i<KB.length;i++)for(var j=0;j<KB[i].k.length;j++)if(t.indexOf(KB[i].k[j])>-1)return KB[i].a;return "I can help with modules, packs, BetterBMS, lead times, or booking a call with an engineer. Tell me a bit about your application.";}
+var fab=document.getElementById('fab'),box=document.getElementById('fchat'),body=document.getElementById('fbb'),inp=document.getElementById('fin'),fc=document.getElementById('fcc');
+function add(t,c){var d=document.createElement('div');d.className='b '+c;d.textContent=t;body.appendChild(d);body.scrollTop=body.scrollHeight;}
+function bot(t){setTimeout(function(){if(t==='__S__')add("Glad to. Next openings with engineering are Thu 2:00 PM, Thu 4:00 PM, or Fri 10:30 AM. Which works?","a");else add(t,'a');},560);}
+function send(t){if(!t.trim())return;add(t,'u');inp.value='';bot(rep(t));}
+var started=false;
+fab.onclick=function(){box.classList.add('on');fab.style.display='none';if(!started){started=true;add("Hi, EVDrive's assistant here. Ask me about our modules, packs, or BetterBMS, or I can book a call.","a");['Battery module specs','How is BetterBMS different?','Lead time and pricing','Book a call'].forEach(function(c){var b=document.createElement('button');b.textContent=c;b.onclick=function(){send(c);};fc.appendChild(b);});}};
+box.querySelector('.x').onclick=function(){box.classList.remove('on');fab.style.display='flex';};
+document.getElementById('fsend').onclick=function(){send(inp.value);};
+inp.addEventListener('keydown',function(e){if(e.key==='Enter')send(inp.value);});
 })();</script>
 </body>
 </html>
