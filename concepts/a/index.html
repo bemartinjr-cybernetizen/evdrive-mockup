@@ -444,6 +444,20 @@
   .rfq-contact .sub{color:var(--text-light-mute)}
   .rfq .form-note{color:var(--text-light-mute)}
   .rfq select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b66a3e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E")}
+
+  /* === PALETTE REBALANCE: light is the default; dark reserved for photo hero + one band === */
+  footer{background:var(--paper-warm)!important;border-top:1px solid var(--line-light)!important}
+  footer .brandmark,.foot-brand .brandmark,.foot-brand a{color:var(--text-light)!important}
+  footer img{filter:none!important}
+  .foot-brand p,.foot-bottom p,.foot-col a,.foot-bottom .fb-links a{color:var(--text-light-mute)!important}
+  .foot-col a:hover,.foot-bottom .fb-links a:hover{color:var(--text-light)!important}
+  .foot-bottom{border-top:1px solid var(--line-light)!important}
+  /* flipped sections: force dark text on light, keep the dark photo cards */
+  #deployments h2,#deployments h3,#deployments .sec-head h2,#deployments .display{color:var(--text-light)}
+  #deployments .lede,#deployments>.wrap>.sec-head p,#deployments .sec-head .lede{color:var(--text-light-mute)}
+  .pad.light .sec-head h2,.pad.light h2.display{color:var(--text-light)}
+  .pad.light .niche-copy h2,.pad.light .niche-copy p{color:var(--text-light)}
+  .pad.light .niche-copy p{color:var(--text-light-mute)}
 </style>
 </head>
 <body>
@@ -544,7 +558,7 @@
 </section>
 
 <!-- ============ PREMIUM NICHE STORY ============ -->
-<section class="pad dark">
+<section class="pad light">
   <div class="wrap">
     <div class="niche">
       <div class="niche-copy reveal">
@@ -604,7 +618,7 @@
 </section>
 
 <!-- ============ DEPLOYMENTS ============ -->
-<section class="pad dark" id="deployments">
+<section class="pad light" id="deployments">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Proven in the world</span>
