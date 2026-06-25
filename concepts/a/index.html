@@ -445,19 +445,22 @@
   .rfq .form-note{color:var(--text-light-mute)}
   .rfq select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b66a3e' stroke-width='1.5' fill='none'/%3E%3C/svg%3E")}
 
-  /* === PALETTE REBALANCE: light is the default; dark reserved for photo hero + one band === */
+  /* === PALETTE: light is default; dark only for photo hero, band, deployments === */
   footer{background:var(--paper-warm)!important;border-top:1px solid var(--line-light)!important}
   footer .brandmark,.foot-brand .brandmark,.foot-brand a{color:var(--text-light)!important}
   footer img{filter:none!important}
   .foot-brand p,.foot-bottom p,.foot-col a,.foot-bottom .fb-links a{color:var(--text-light-mute)!important}
   .foot-col a:hover,.foot-bottom .fb-links a:hover{color:var(--text-light)!important}
   .foot-bottom{border-top:1px solid var(--line-light)!important}
-  /* flipped sections: force dark text on light, keep the dark photo cards */
-  #deployments h2,#deployments h3,#deployments .sec-head h2,#deployments .display{color:var(--text-light)}
-  #deployments .lede,#deployments>.wrap>.sec-head p,#deployments .sec-head .lede{color:var(--text-light-mute)}
-  .pad.light .sec-head h2,.pad.light h2.display{color:var(--text-light)}
-  .pad.light .niche-copy h2,.pad.light .niche-copy p{color:var(--text-light)}
-  .pad.light .niche-copy p{color:var(--text-light-mute)}
+  /* readable dark text on the light sections (niche, services, bms, rfq) */
+  .niche-copy p{color:var(--text-light-mute)!important}
+  .niche-copy p strong,.niche-quote{color:var(--text-light)!important}
+  .stat .l{color:var(--text-light-mute)!important}
+  .svc p,.custom-note p,.bms .lede{color:var(--text-light-mute)!important}
+  .rfq-left p,.rfq-contact .sub,.form-success p,.form-note{color:var(--text-light-mute)!important}
+  .rfq-contact a,.rfq-contact div,.form-success h3{color:var(--text-light)!important}
+  /* 'where we win' card = deliberate dark accent (white text reads on dark) */
+  .vs{background:var(--ink-soft)!important;border:1px solid var(--line-dark)!important}
 </style>
 </head>
 <body>
@@ -618,7 +621,7 @@
 </section>
 
 <!-- ============ DEPLOYMENTS ============ -->
-<section class="pad light" id="deployments">
+<section class="pad dark" id="deployments">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Proven in the world</span>
