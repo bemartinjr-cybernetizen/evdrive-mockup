@@ -922,12 +922,12 @@ inp.addEventListener('keydown',function(e){if(e.key==='Enter')send(inp.value);})
  renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
  var scene=new THREE.Scene();
  var camera=new THREE.PerspectiveCamera(42,1,0.1,100);
- camera.position.set(0,3.0,12);camera.lookAt(0,0.5,0);
+ camera.position.set(0,2.6,12.6);camera.lookAt(0,0.3,0);
  scene.add(new THREE.HemisphereLight(0xcfe0ee,0x0a0f14,0.62));
  var d1=new THREE.DirectionalLight(0xffffff,0.95);d1.position.set(5,9,7);scene.add(d1);
  var d2=new THREE.DirectionalLight(0x3fa86a,0.5);d2.position.set(-7,3,-5);scene.add(d2);
  var d3=new THREE.DirectionalLight(0xe7c98a,0.4);d3.position.set(0,-5,4);scene.add(d3);
- var pack=new THREE.Group();scene.add(pack);
+ var pack=new THREE.Group();pack.scale.setScalar(0.78);scene.add(pack);
 
  var COLS=11,ROWS=4,SX=0.42,SZ=0.42,CR=0.155,CH=1.0;
  var ox=(COLS-1)*SX/2,oz=(ROWS-1)*SZ/2,W=(COLS-1)*SX+0.5,D=(ROWS-1)*SZ+0.5;
