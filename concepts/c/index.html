@@ -569,49 +569,6 @@
 </section>
 
 <!-- ====== AI ASSISTANT (CELEBRATED) ====== -->
-<section class="sec ai" id="ai">
-  <div class="wrap" style="position:relative;z-index:2">
-    <div class="ai-grid">
-      <div class="ai-copy rv">
-        <div class="kicker"><span class="bar"></span><span class="eyebrow">Always-On Engineering Desk</span></div>
-        <h2>Your Question, Answered The Instant You Ask It</h2>
-        <p class="lead">Serious buyers do not wait for a callback. Our embedded AI assistant answers inbound technical and product questions instantly, day or night, with real specifics about modules, packs, and BetterBMS, then routes qualified inquiries straight to our engineers.</p>
-        <div class="ai-feats">
-          <div class="ai-feat">
-            <div class="ic">⚡</div>
-            <div><h4>Instant, specific answers</h4><p>Cell formats, cooling, BMS configurability, lead times. Real product knowledge, not a generic greeting.</p></div>
-          </div>
-          <div class="ai-feat">
-            <div class="ic">◎</div>
-            <div><h4>Qualifies and routes</h4><p>It understands an OEM program versus a one-off build and hands serious inquiries to the right engineer with context attached.</p></div>
-          </div>
-          <div class="ai-feat">
-            <div class="ic">↻</div>
-            <div><h4>Never off the clock</h4><p>The first response is immediate, every time, so a buyer in a different time zone never hits a dead inbox.</p></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="chat rv rv-d1" aria-hidden="true">
-        <div class="chat-bar">
-          <div class="av">EV</div>
-          <div class="ci"><b>EVDrive Assistant</b><span>Online · replies instantly</span></div>
-        </div>
-        <div class="chat-body" id="chatbody">
-          <div class="bub user" style="animation-delay:.2s">What's the energy density on your 21700 modules versus a standard pack?</div>
-          <div class="bub bot" style="animation-delay:.9s">Our modules are built on standardized 21700 cells with roughly ten years of in-house R&D, giving <b>class-leading power and energy density</b> for performance buyers. Want the spec sheet for your target voltage and footprint?</div>
-          <div class="bub user" style="animation-delay:1.9s">Yes, and can BetterBMS run my own pack topology?</div>
-          <div class="bub bot" style="animation-delay:2.7s">Absolutely. <b>BetterBMS is fully configurable</b> for chemistry, topology, current limits, and CAN mapping, with true cell-level monitoring. I'll route you to an engineer with your details now.</div>
-        </div>
-        <div class="chat-foot">
-          <div class="ipt">Ask about modules, packs, or BetterBMS...</div>
-          <div class="snd">→</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ====== FAQ ====== -->
 <section class="sec wrap" id="faq">
   <span class="idx">05</span>
@@ -773,5 +730,42 @@
   });
 })();
 </script>
+<style>
+#fab{position:fixed;right:22px;bottom:22px;z-index:200;display:flex;align-items:center;gap:9px;background:#2bf0d0;color:#06121a;font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:13.5px;border:0;padding:12px 17px;border-radius:999px;cursor:pointer;box-shadow:0 16px 40px -14px #2bf0d0}
+#fab .d{width:8px;height:8px;border-radius:50%;background:#06121a}
+#fchat{position:fixed;right:22px;bottom:22px;z-index:201;width:min(368px,calc(100vw - 30px));height:min(540px,calc(100vh - 52px));background:#10151d;border:1px solid #2bf0d055;border-radius:16px;box-shadow:0 40px 90px -34px rgba(0,0,0,.8);display:none;flex-direction:column;overflow:hidden;font-family:system-ui,-apple-system,sans-serif}
+#fchat.on{display:flex}
+#fchat .fh{background:#06080d;padding:14px 17px;border-bottom:1px solid #2bf0d033;display:flex;align-items:center;gap:10px}
+#fchat .fh .av{width:32px;height:32px;border-radius:50%;background:#2bf0d0;color:#06121a;display:flex;align-items:center;justify-content:center;font-weight:700}
+#fchat .fh b{color:#fff;font-size:15px}
+#fchat .fh small{color:#2bf0d0;font-size:11px;display:block}
+#fchat .fh .x{margin-left:auto;background:0;border:0;color:#9aa1ab;font-size:22px;cursor:pointer}
+#fchat .fb{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+#fchat .b{max-width:85%;padding:11px 14px;border-radius:13px;font-size:14px;line-height:1.5}
+#fchat .b.u{background:#2bf0d0;color:#06121a;align-self:flex-end;border-bottom-right-radius:3px;font-weight:500}
+#fchat .b.a{background:#141a25;color:#cfd6df;align-self:flex-start;border-bottom-left-radius:3px}
+#fchat .fc{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 10px}
+#fchat .fc button{background:0;border:1px solid #2bf0d044;color:#aeb4bd;font-size:12px;padding:7px 11px;border-radius:999px;cursor:pointer;font-family:inherit}
+#fchat .fc button:hover{border-color:#2bf0d0;color:#2bf0d0}
+#fchat .ff{display:flex;gap:8px;padding:12px;border-top:1px solid #2bf0d022;background:#06080d}
+#fchat .ff input{flex:1;background:#141a25;border:1px solid #2bf0d033;border-radius:999px;padding:11px 14px;color:#fff;font-family:inherit;font-size:14px}
+#fchat .ff input:focus{outline:0;border-color:#2bf0d0}
+#fchat .ff button{background:#2bf0d0;border:0;color:#06121a;width:40px;border-radius:50%;cursor:pointer;font-size:16px;font-weight:700}
+</style>
+<button id="fab"><span class="d"></span>Ask EVDrive AI</button>
+<div id="fchat"><div class="fh"><div class="av">E</div><div><b>EVDrive Assistant</b><small>Online, replies instantly</small></div><button class="x" aria-label="close">&times;</button></div><div class="fb" id="fbb"></div><div class="fc" id="fcc"></div><div class="ff"><input id="fin" placeholder="Ask about modules, packs, BMS, lead times" autocomplete="off"><button id="fsend" aria-label="send">&#8593;</button></div></div>
+<script>(function(){
+var KB=[{k:['bms','better','aem','vero','orion'],a:"BetterBMS is our in-house battery management system: true cell-level monitoring, fault-tolerant safety, deep configurability, and native integration with our packs. Full detail and ordering live at ev-battery-management-system.com."},{k:['module','21700','energy','power','density'],a:"Our modules use standard 21700 cells with premium high-performance chemistry, tuned for class-leading power and energy density. Tell me your target voltage, capacity, and continuous current and I will scope it."},{k:['pack','liquid','cool'],a:"We build complete liquid-cooled high-performance packs, engineered and validated in-house. Share the program plus target energy and power and I will route you to an engineer."},{k:['price','cost','quote','how much','lead','time'],a:"Pricing and lead time depend on chemistry, capacity, voltage, and volume. The fastest path is a short brief: application plus target specs. Want me to open the quote form?"},{k:['book','call','schedule','meeting','talk'],a:"__S__"},{k:['convert','conversion','swap'],a:"We focus on battery systems and BMS, and take on only select high-end custom builds. For a standard conversion we are likely not the best fit."}];
+function rep(t){t=t.toLowerCase();for(var i=0;i<KB.length;i++)for(var j=0;j<KB[i].k.length;j++)if(t.indexOf(KB[i].k[j])>-1)return KB[i].a;return "I can help with modules, packs, BetterBMS, lead times, or booking a call with an engineer. Tell me a bit about your application.";}
+var fab=document.getElementById('fab'),box=document.getElementById('fchat'),body=document.getElementById('fbb'),inp=document.getElementById('fin'),fc=document.getElementById('fcc');
+function add(t,c){var d=document.createElement('div');d.className='b '+c;d.textContent=t;body.appendChild(d);body.scrollTop=body.scrollHeight;}
+function bot(t){setTimeout(function(){if(t==='__S__')add("Glad to. Next openings with engineering are Thu 2:00 PM, Thu 4:00 PM, or Fri 10:30 AM. Which works?","a");else add(t,'a');},560);}
+function send(t){if(!t.trim())return;add(t,'u');inp.value='';bot(rep(t));}
+var started=false;
+fab.onclick=function(){box.classList.add('on');fab.style.display='none';if(!started){started=true;add("Hi, EVDrive's assistant here. Ask me about our modules, packs, or BetterBMS, or I can book a call.","a");['Battery module specs','How is BetterBMS different?','Lead time and pricing','Book a call'].forEach(function(c){var b=document.createElement('button');b.textContent=c;b.onclick=function(){send(c);};fc.appendChild(b);});}};
+box.querySelector('.x').onclick=function(){box.classList.remove('on');fab.style.display='flex';};
+document.getElementById('fsend').onclick=function(){send(inp.value);};
+inp.addEventListener('keydown',function(e){if(e.key==='Enter')send(inp.value);});
+})();</script>
 </body>
 </html>
