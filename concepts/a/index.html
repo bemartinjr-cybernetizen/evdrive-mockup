@@ -461,6 +461,26 @@
   .rfq-contact a,.rfq-contact div,.form-success h3{color:var(--text-light)!important}
   /* 'where we win' card = deliberate dark accent (white text reads on dark) */
   .vs{background:var(--ink-soft)!important;border:1px solid var(--line-dark)!important}
+
+  /* === DEPTH PASS: kill the flatness. layered grounds + floated cards === */
+  .pad.light{background:
+     radial-gradient(125% 85% at 50% -8%, #faf8f3 0%, rgba(250,248,243,0) 58%),
+     linear-gradient(180deg,#f5f3ee 0%, #ece8df 100%)!important}
+  #bms{background:
+     radial-gradient(120% 75% at 82% -5%, #f4f0e7 0%, rgba(244,240,231,0) 55%),
+     linear-gradient(180deg,#efebe2 0%, #e8e2d6 100%)!important}
+  .pad.rfq{background:
+     radial-gradient(110% 90% at 50% -5%, #f2ede3 0%, rgba(242,237,227,0) 60%),
+     linear-gradient(180deg,#ece8df 0%, #e4ddd0 100%)!important}
+  /* content floats off the page: soft warm elevation + rounder corners */
+  .pillars,.svc-grid{border-radius:16px;overflow:hidden;
+     box-shadow:0 34px 80px -46px rgba(34,26,14,.5),0 2px 0 rgba(255,255,255,.6) inset}
+  .deploy,.vs,.bms-figure{border-radius:16px;
+     box-shadow:0 30px 70px -44px rgba(34,26,14,.5)}
+  .bms-figure{overflow:hidden}
+  .deploy{overflow:hidden}
+  /* richer, warmer accent rules so the gold actually reads on light */
+  .rule{height:2px;background:linear-gradient(90deg,transparent,var(--accent),var(--copper),transparent)}
 </style>
 </head>
 <body>
