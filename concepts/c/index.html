@@ -306,9 +306,10 @@
     .bub{opacity:1;transform:none}
   }
 
-  .socials{display:flex;gap:13px;margin-top:22px}
-  .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid var(--line-soft);border-radius:8px;color:var(--fog-2);transition:color .3s,border-color .3s,transform .3s}
-  .socials a:hover{color:var(--volt);border-color:var(--volt);transform:translateY(-2px)}
+  .social-logos{display:flex;gap:16px;align-items:center}
+  .social-logos a{color:var(--fog-2);line-height:0;transition:color .3s,transform .3s}
+  .social-logos a:hover{color:var(--volt);transform:translateY(-2px)}
+  .social-logos svg{display:block}
 </style>
 </head>
 <body>
@@ -669,10 +670,6 @@
       <div class="foot-brand">
         <span class="brand-mark" style="font-family:'Archivo Expanded';font-weight:900;text-transform:uppercase">EV<b style="color:var(--volt)">DRIVE</b></span>
         <p>High-performance EV battery modules, liquid-cooled packs, and the BetterBMS battery management system. Engineered and validated in-house in Portland, Oregon since 2009.</p>
-        <div class="socials">
-          <a href="https://www.instagram.com/evdriveinc/" target="_blank" rel="noopener" aria-label="EVDrive on Instagram"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.linkedin.com/company/evdrive" target="_blank" rel="noopener" aria-label="EVDrive on LinkedIn"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.3 0-2.95-1.8-2.95s-2.08 1.4-2.08 2.85V21H9z"/></svg></a>
-        </div>
       </div>
       <div class="foot-col">
         <h5>Explore</h5>
@@ -693,6 +690,7 @@
     <div class="foot-bot">
       <span>© 2026 EVDrive. All rights reserved.</span>
       <span>Premium EV battery systems · Built in the Pacific Northwest</span>
+      <div class="social-logos"><a href="https://www.instagram.com/evdriveinc/" target="_blank" rel="noopener" aria-label="EVDrive on Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zm0 1.62c-3.15 0-3.52.01-4.76.07-1.15.05-1.77.24-2.19.41-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.17.42-.36 1.04-.41 2.19-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.05 1.15.24 1.77.41 2.19.21.55.47.94.88 1.35.41.41.8.67 1.35.88.42.17 1.04.36 2.19.41 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c1.15-.05 1.77-.24 2.19-.41.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.17-.42.36-1.04.41-2.19.06-1.24.07-1.61.07-4.76s-.01-3.52-.07-4.76c-.05-1.15-.24-1.77-.41-2.19-.21-.55-.47-.94-.88-1.35-.41-.41-.8-.67-1.35-.88-.42-.17-1.04-.36-2.19-.41-1.24-.06-1.61-.07-4.76-.07zm0 2.76a5.3 5.3 0 1 1 0 10.6 5.3 5.3 0 0 1 0-10.6zm0 1.62a3.68 3.68 0 1 0 0 7.36 3.68 3.68 0 0 0 0-7.36zm5.48-2.9a1.24 1.24 0 1 1 0 2.48 1.24 1.24 0 0 1 0-2.48z"/></svg></a><a href="https://www.linkedin.com/company/evdrive" target="_blank" rel="noopener" aria-label="EVDrive on LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div>
     </div>
   </div>
 </footer>
