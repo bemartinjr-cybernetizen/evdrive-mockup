@@ -1,7 +1,7 @@
 /* EVDrive AI assistant — polished demo (real LLM wired at delivery) */
 (function(){
   var KB=[
-    {k:['bms','battery management','better bms','aem','orion','vero'],a:"Our BMS is a new flagship, built over 5 years in our own packs. We sell it two ways: retail/individual (a better alternative to AEM, Vero, and Orion) at ev-battery-management-system.com, and as an OEM solution under the EVDrive brand. Want the retail store, or the OEM path?"},
+    {k:['bms','battery management','better bms','aem','orion','vero'],a:"Our BMS is a new flagship, built over 5 years in our own packs. We sell it two ways: retail/individual (a better alternative to AEM, Vero, and Orion) at better-battery-management-system.com, and as an OEM solution under the EVDrive brand. Want the retail store, or the OEM path?"},
     {k:['module','pack','battery','21700','energy density','power density'],a:"Our high-performance battery modules are our core IP — ~10 years of iteration on standard 21700 cells, tuned for class-leading power and energy density. They're priced for performance buyers who need the headroom. Want specs, or to send a project brief?"},
     {k:['oem','volume','production','manufactur'],a:"For OEMs we supply battery modules, packs, and BMS for low-volume and prototype-to-production programs. The fastest path is a short project brief — I can capture it now or book a call with engineering."},
     {k:['convert','conversion','swap','my car','restomod'],a:"We focus on battery systems and BMS, and take on only select high-end custom builds (cost-no-object). For a standard EV conversion we're likely not the best fit. If it's a premium build, tell me about the vehicle and target."},
